@@ -22,3 +22,14 @@ body {
   padding: 0;
   background-color: var(--whiteGray);
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondaryDark);
+}
