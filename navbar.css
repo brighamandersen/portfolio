@@ -12,6 +12,10 @@ nav a {
   padding: 16px;
 }
 
+nav a:hover {
+  text-decoration: none;
+}
+
 nav a.active {
   background-color: var(--whiteGray);
   color: var(--primary);
