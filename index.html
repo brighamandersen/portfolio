@@ -14,29 +14,33 @@
     />
     <link rel="stylesheet" href="global.css" />
     <style>
-      .bio-and-profile-pic-container {
+      .bio-and-profile-pic {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
       }
 
-      .bio {
-        padding: 1rem;
+      /* Stack bio and picture vertically on small screens */
+      @media (max-width: 959px) {
+        .bio-and-profile-pic {
+          flex-direction: column;
+        }
       }
 
       .profile-pic {
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
         border-radius: 50%;
-        padding: 1rem;
+        padding: 2rem;
       }
 
-      /* Stack bio and picture vertically on small screens */
-      @media (max-width: 959px) {
-        .bio-and-profile-pic-container {
-          flex-direction: column;
-        }
+      .youtube-video {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding-bottom: 2rem;
       }
     </style>
   </head>
@@ -65,7 +69,7 @@
     </nav>
     <main>
       <h1 class="page-header">Welcome!</h1>
-      <div class="bio-and-profile-pic-container">
+      <div class="bio-and-profile-pic">
         <div class="bio">
           <p>
             Hi, I'm <strong>Brigham Andersen</strong> and
@@ -90,12 +94,30 @@
       <div class="latest-content">
         <h2>Latest Content</h2>
         <iframe
-          width="100%"
-          height="100%"
+          class="youtube-video"
           src="https://www.youtube.com/embed/34GiNbJ4ECc"
-          frameborder="0"
-        >
-        </iframe>
+          allowfullscreen
+        ></iframe>
+        <iframe
+          class="youtube-video"
+          src="https://www.youtube.com/embed/McgMi2Pf4l4"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          class="youtube-video"
+          src="https://www.youtube.com/embed/UJC2Gyaxd_s"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          class="youtube-video"
+          src="https://www.youtube.com/embed/vGIRW00pB9w"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          class="youtube-video"
+          src="https://www.youtube.com/embed/jSeLgZsF5_U"
+          allowfullscreen
+        ></iframe>
       </div>
     </main>
     <img src="./assets/corner-logo.webp" alt="BA Logo" class="corner-logo" />
