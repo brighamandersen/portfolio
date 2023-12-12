@@ -8,17 +8,38 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="navbar.css" />
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
-      <a href="/resume.html" class="active">Resume</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/designs.html">Designs</a>
-      <a href="/contact.html">Contact</a>
+      <a href="/" class="nav-item">
+        <span class="material-icons">home</span>
+        <span class="nav-text">Home</span>
+      </a>
+      <a href="/resume.html" class="nav-item active">
+        <span class="material-icons">description</span>
+        <span class="nav-text">Resume</span>
+      </a>
+      <a href="/projects.html" class="nav-item">
+        <span class="material-icons">desktop_mac</span>
+        <span class="nav-text">Projects</span>
+      </a>
+      <a href="/designs.html" class="nav-item">
+        <span class="material-icons">photo_library</span>
+        <span class="nav-text">Designs</span>
+      </a>
+      <a href="/contact.html" class="nav-item">
+        <span class="material-icons">account_box</span>
+        <span class="nav-text">Contact</span>
+      </a>
     </nav>
-    <h1>Resume</h1>
+    <main>
+      <h1 class="page-header">Resume</h1>
+    </main>
+    <img src="./assets/corner-logo.webp" alt="BA Logo" class="corner-logo" />
   </body>
 </html>

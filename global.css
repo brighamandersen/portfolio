@@ -49,9 +49,44 @@ a:hover {
   text-decoration: underline;
 }
 
-section {
+main {
   padding: 6rem 0;
   min-height: 100vh;
+}
+
+nav {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--whiteGray);
+  letter-spacing: 1px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item:hover {
+  text-decoration: none;
+}
+
+.nav-item.active {
+  background-color: var(--whiteGray);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.nav-item:not(.active):hover {
+  background-color: var(--primaryLight);
+}
+
+.nav-text {
+  margin-left: 8px;
 }
 
 /* Custom scrollbar */
@@ -63,4 +98,16 @@ section {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondaryDark);
+}
+
+.page-header {
+  font-size: 40px;
+}
+
+.corner-logo {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
 }
