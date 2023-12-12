@@ -50,8 +50,10 @@ a:hover {
 }
 
 main {
-  padding: 6rem 0;
-  min-height: 100vh;
+  padding: 0 2rem;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 nav {
@@ -89,6 +91,13 @@ nav {
   margin-left: 8px;
 }
 
+/* Stack bio and picture vertically on small screens */
+@media (max-width: 959px) {
+  .nav-text {
+    display: none;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -110,4 +119,11 @@ nav {
   right: 0;
   width: 120px;
   height: 120px;
+}
+
+/* Hide corner logo on smaller screens */
+@media (max-width: 1279px) {
+  .corner-logo {
+    display: none;
+  }
 }

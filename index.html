@@ -13,6 +13,32 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="global.css" />
+    <style>
+      .bio-and-profile-pic-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .bio {
+        padding: 1rem;
+      }
+
+      .profile-pic {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 50%;
+        padding: 1rem;
+      }
+
+      /* Stack bio and picture vertically on small screens */
+      @media (max-width: 959px) {
+        .bio-and-profile-pic-container {
+          flex-direction: column;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -39,6 +65,38 @@
     </nav>
     <main>
       <h1 class="page-header">Welcome!</h1>
+      <div class="bio-and-profile-pic-container">
+        <div class="bio">
+          <p>
+            Hi, I'm <strong>Brigham Andersen</strong> and
+            <u>I'm addicted to giving my all</u>.
+          </p>
+          <p>
+            I love solving the problem we hate most --
+            <i> wasting time and money</i>.
+          </p>
+          <p>
+            I can't stop thinking of how we can use technology to boost business
+            productivity, so I've built a career for myself in software
+            engineering and business. My passion and skills have helped numerous
+            start-ups along with big name companies like Nike, Oracle,
+            Chick-fil-A, McDonald's, and Walmart. I consider this career to be
+            my gift to the world.
+          </p>
+          <p>Let's discuss how I can give my all to help you!</p>
+        </div>
+        <img src="./assets/profile-pic.webp" alt="Me" class="profile-pic" />
+      </div>
+      <div class="latest-content">
+        <h2>Latest Content</h2>
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/34GiNbJ4ECc"
+          frameborder="0"
+        >
+        </iframe>
+      </div>
     </main>
     <img src="./assets/corner-logo.webp" alt="BA Logo" class="corner-logo" />
   </body>
