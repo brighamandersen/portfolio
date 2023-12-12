@@ -13,6 +13,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="global.css" />
     <style>
       .bio-and-profile-pic {
@@ -22,18 +26,22 @@
         align-items: center;
       }
 
+      .profile-pic {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 50%;
+        padding: 0 2rem;
+      }
+
       /* Stack bio and picture vertically on small screens */
       @media (max-width: 959px) {
         .bio-and-profile-pic {
           flex-direction: column;
         }
-      }
 
-      .profile-pic {
-        width: 100%;
-        max-width: 350px;
-        border-radius: 50%;
-        padding: 2rem;
+        .profile-pic {
+          padding: 2rem;
+        }
       }
 
       .youtube-video {
@@ -41,7 +49,17 @@
         width: 100%;
         height: 100%;
         border: none;
-        padding-bottom: 2rem;
+        padding-bottom: 3rem;
+      }
+
+      .latest-content-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .icon-button {
+        margin-left: 16px;
       }
     </style>
   </head>
@@ -70,7 +88,7 @@
     </nav>
     <main>
       <h1 class="page-header">Welcome!</h1>
-      <div class="bio-and-profile-pic">
+      <section class="bio-and-profile-pic">
         <div class="bio">
           <p>
             Hi, I'm <strong>Brigham Andersen</strong> and
@@ -91,14 +109,28 @@
           <p>Let's discuss how I can give my all to help you!</p>
         </div>
         <img src="./assets/profile-pic.webp" alt="Me" class="profile-pic" />
-      </div>
-      <div class="latest-content">
-        <h2>Latest Content</h2>
-        <iframe
-          class="youtube-video"
-          src="https://www.youtube.com/embed/34GiNbJ4ECc"
-          allowfullscreen
-        ></iframe>
+      </section>
+      <section class="latest-content">
+        <div class="latest-content-header">
+          <h2>Latest Content</h2>
+          <a
+            href="https://www.youtube.com/channel/UC5h98VfEfhqHkSMlt4ejCeg"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Check out my YouTube channel"
+            class="icon-button"
+          >
+            <span class="material-icons-outlined">ondemand_video</span>
+          </a>
+        </div>
+        <div title="title">
+          <iframe
+            class="youtube-video"
+            src="https://www.youtube.com/embed/34GiNbJ4ECc"
+            title="'viddsksdj"
+            allowfullscreen
+          ></iframe>
+        </div>
         <iframe
           class="youtube-video"
           src="https://www.youtube.com/embed/McgMi2Pf4l4"
@@ -119,7 +151,7 @@
           src="https://www.youtube.com/embed/jSeLgZsF5_U"
           allowfullscreen
         ></iframe>
-      </div>
+      </section>
     </main>
     <img src="./assets/corner-logo.webp" alt="BA Logo" class="corner-logo" />
   </body>

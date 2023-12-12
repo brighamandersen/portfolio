@@ -15,12 +15,20 @@
   /* Helper colors */
   --secondaryDark: #6d6d6d;
   --primaryLight: #4d769a;
+  --hoverColor: rgba(0, 0, 0, 0.05);
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: var(--whiteGray);
+}
+
+main {
+  padding: 2rem;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 code {
@@ -49,11 +57,8 @@ a:hover {
   text-decoration: underline;
 }
 
-main {
-  padding: 0 2rem;
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
+section {
+  padding-bottom: 3rem;
 }
 
 nav {
@@ -110,7 +115,22 @@ nav {
 }
 
 .page-header {
-  font-size: 40px;
+  font-size: 2.5em;
+}
+
+.icon-button {
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-button:hover {
+  background-color: var(--hoverColor);
+  text-decoration: none;
 }
 
 .corner-logo {
