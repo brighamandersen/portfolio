@@ -12,10 +12,10 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 
 [Projects Icon](https://fontawesome.com/icons/code?f=classic&s=solid)
 
-[Designs Icon](https://fonts.google.com/icons?selected=Material+Icons:color_lens:&icon.query=pain)
+[Designs Icon](https://fonts.google.com/icons?selected=Material+Icons:color_lens:&icon.query=color+lens)
 
 [Contact Icon](https://fonts.google.com/icons?selected=Material+Icons:account_box:&icon.query=account_box)
 
-[Latest Content Icon](https://fonts.google.com/icons?selected=Material+Icons:subscriptions:&icon.query=list)
+[Latest Content Icon](https://fonts.google.com/icons?selected=Material+Icons:subscriptions:&icon.query=subscriptions)
 
 [LinkedIn Icon](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
