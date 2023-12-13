@@ -15,6 +15,14 @@
     />
     <link rel="stylesheet" href="global.css" />
     <style>
+      .youtube-video {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding-bottom: 3rem;
+      }
+
       .bio-and-profile-pic {
         display: flex;
         flex-direction: row;
@@ -29,6 +37,10 @@
         padding: 0 2rem;
       }
 
+      .latest-content-icon {
+        fill: var(--secondary);
+      }
+
       /* Stack bio and picture vertically on small screens */
       @media (max-width: 959px) {
         .bio-and-profile-pic {
@@ -39,24 +51,19 @@
           padding: 2rem;
         }
       }
-
-      .youtube-video {
-        aspect-ratio: 16 / 9;
-        width: 100%;
-        height: 100%;
-        border: none;
-        padding-bottom: 3rem;
-      }
-
-      .icon-button {
-        margin-left: 16px;
-      }
     </style>
   </head>
   <body>
     <nav>
       <a href="/" class="nav-item active">
-        <span class="material-icons">home</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="svg-icon home-icon"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
         <span class="nav-text">Home</span>
       </a>
       <a href="/resume.html" class="nav-item">
@@ -110,11 +117,16 @@
             title="Check out my YouTube channel"
             class="icon-button"
           >
-            <img
-              src="./assets/icons/latest-content.svg"
-              alt="Latest Content Icon"
-              class="svg-icon"
-            />
+            <svg
+              class="svg-icon latest-content-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M9 7v8l7-4zm12-4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"
+              />
+            </svg>
           </a>
         </div>
         <div title="title">

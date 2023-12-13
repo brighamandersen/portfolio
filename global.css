@@ -88,6 +88,14 @@ nav {
   font-weight: bold;
 }
 
+.nav-item.active .svg-icon {
+  fill: var(--primary);
+}
+
+.nav-item:not(.active) .svg-icon {
+  fill: var(--whiteGray);
+}
+
 .nav-item:not(.active):hover {
   background-color: var(--primaryLight);
 }
@@ -141,6 +149,11 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+/* Have 16px margin between headers and icon buttons */
+.header-icon-button-container .icon-button {
+  margin-left: 16px;
 }
 
 .corner-logo {
