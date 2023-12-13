@@ -10,18 +10,16 @@
   /*  Color scheme */
   --primary: #215481;
   --secondary: #808080;
-  --whiteGray: #f7f7f7;
+  --white-gray: #f7f7f7;
 
-  /* Helper colors */
-  --secondaryDark: #6d6d6d;
-  --primaryLight: #4d769a;
-  --hoverColor: rgba(0, 0, 0, 0.05);
+  --primary-light: #4d769a;
+  --hover-color: rgba(0, 0, 0, 0.05);
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--whiteGray);
+  background-color: var(--white-gray);
 }
 
 main {
@@ -70,7 +68,7 @@ nav {
 
 .nav-item {
   text-decoration: none;
-  color: var(--whiteGray);
+  color: var(--white-gray);
   letter-spacing: 1px;
   padding: 16px;
   display: flex;
@@ -83,7 +81,7 @@ nav {
 }
 
 .nav-item.active {
-  background-color: var(--whiteGray);
+  background-color: var(--white-gray);
   color: var(--primary);
   font-weight: bold;
 }
@@ -93,11 +91,11 @@ nav {
 }
 
 .nav-item:not(.active) .svg-icon {
-  fill: var(--whiteGray);
+  fill: var(--white-gray);
 }
 
 .nav-item:not(.active):hover {
-  background-color: var(--primaryLight);
+  background-color: var(--primary-light);
 }
 
 .nav-text {
@@ -119,7 +117,7 @@ nav {
   background: var(--secondary);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondaryDark);
+  background: #6d6d6d;
 }
 
 .page-header {
@@ -141,7 +139,7 @@ nav {
 }
 
 .icon-button:hover {
-  background-color: var(--hoverColor);
+  background-color: var(--hover-color);
   text-decoration: none;
 }
 
