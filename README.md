@@ -14,7 +14,7 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 
 [Designs Icon](https://fonts.google.com/icons?selected=Material+Icons:photo_library:&icon.query=photo_library)
 
-[Contact Icon]()
+[Contact Icon](https://fonts.google.com/icons?selected=Material+Icons:account_box:&icon.query=account_box)
 
 [Latest Content Icon](https://fonts.google.com/icons?selected=Material+Icons:ondemand_video:&icon.query=video)
 
