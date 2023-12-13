@@ -13,10 +13,6 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="global.css" />
     <style>
       .bio-and-profile-pic {
@@ -50,12 +46,6 @@
         height: 100%;
         border: none;
         padding-bottom: 3rem;
-      }
-
-      .latest-content-header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
       }
 
       .icon-button {
@@ -111,7 +101,7 @@
         <img src="./assets/profile-pic.webp" alt="Me" class="profile-pic" />
       </section>
       <section class="latest-content">
-        <div class="latest-content-header">
+        <div class="header-icon-button-container">
           <h2>Latest Content</h2>
           <a
             href="https://www.youtube.com/channel/UC5h98VfEfhqHkSMlt4ejCeg"
@@ -120,14 +110,17 @@
             title="Check out my YouTube channel"
             class="icon-button"
           >
-            <span class="material-icons-outlined">ondemand_video</span>
+            <img
+              src="./assets/icons/latest-content.svg"
+              alt="Latest Content Icon"
+              class="svg-icon"
+            />
           </a>
         </div>
         <div title="title">
           <iframe
             class="youtube-video"
             src="https://www.youtube.com/embed/34GiNbJ4ECc"
-            title="'viddsksdj"
             allowfullscreen
           ></iframe>
         </div>
