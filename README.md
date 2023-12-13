@@ -10,12 +10,12 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 
 [Resume Icon](https://fonts.google.com/icons?selected=Material+Icons:description:&icon.query=description)
 
-[Projects Icon](https://fonts.google.com/icons?selected=Material+Icons:desktop_mac:&icon.query=desktop)
+[Projects Icon](https://fonts.google.com/icons?selected=Material+Icons:terminal:&icon.query=terminal)
 
-[Designs Icon](https://fonts.google.com/icons?selected=Material+Icons:photo_library:&icon.query=photo_library)
+[Designs Icon](https://fonts.google.com/icons?selected=Material+Icons:color_lens:&icon.query=pain)
 
 [Contact Icon](https://fonts.google.com/icons?selected=Material+Icons:account_box:&icon.query=account_box)
 
-[Latest Content Icon](https://fonts.google.com/icons?selected=Material+Icons:ondemand_video:&icon.query=video)
+[Latest Content Icon](https://fontawesome.com/icons/youtube?f=brands&s=solid)
 
 [LinkedIn Icon](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
