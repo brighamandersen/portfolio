@@ -1,5 +1,17 @@
-# Fonts
+# Icons
 
 I opted to download icons as svgs then copy the svg code directly in (had to copy it directly in so that you can apply fill using css variables). This also helped to avoid downloading a bunch of unused icons.
 
-I found practically all the icons at the [Google Material Icons](https://fonts.google.com/icons) site. I found any other missing icons from [Font Awesome Icons](https://fontawesome.com/icons/linkedin?f=brands&s=solid) (i.e. the LinkedIn icon, that was missing from Google's library).
+[Home Icon](https://fonts.google.com/icons?selected=Material+Icons:home:&icon.query=home)
+
+[Resume Icon](https://fonts.google.com/icons?selected=Material+Icons:description:&icon.query=description)
+
+[Projects Icon](https://fonts.google.com/icons?selected=Material+Icons:desktop_mac:&icon.query=desktop)
+
+[Designs Icon](https://fonts.google.com/icons?selected=Material+Icons:photo_library:&icon.query=photo_library)
+
+[Contact Icon]()
+
+[Latest Content Icon](https://fonts.google.com/icons?selected=Material+Icons:ondemand_video:&icon.query=video)
+
+[LinkedIn Icon](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
