@@ -19,3 +19,5 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 [Latest Content Icon](https://fonts.google.com/icons?selected=Material+Icons:subscriptions:&icon.query=subscriptions)
 
 [LinkedIn Icon](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
+
+[Top Languages Icons](https://devicon.dev/)
