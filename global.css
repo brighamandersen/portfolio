@@ -134,6 +134,11 @@ nav {
   height: 100px;
 }
 
+.icon-lg {
+  width: 200px;
+  height: 200px;
+}
+
 .icon-button {
   text-decoration: none;
   padding: 12px;

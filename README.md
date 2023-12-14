@@ -21,3 +21,7 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 [LinkedIn Icon](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
 
 [Top Languages Icons](https://devicon.dev/)
+
+[Mail Icon]()
+
+[Phone Icon]()
