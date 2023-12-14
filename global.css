@@ -141,7 +141,7 @@ nav {
 
 .icon-button {
   text-decoration: none;
-  padding: 12px;
+  padding: 16px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -153,14 +153,13 @@ nav {
   text-decoration: none;
 }
 
-.header-icon-button-container {
+.header-icon-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
 /* Have 16px margin between headers and icon buttons */
-.header-icon-button-container .icon-button {
+.header-icon-container .icon-button {
   margin-left: 16px;
 }
 
