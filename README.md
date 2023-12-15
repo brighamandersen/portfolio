@@ -25,3 +25,7 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 [Mail Icon](https://fonts.google.com/icons?selected=Material+Icons:mail_outline:&icon.query=email&icon.set=Material+Icons)
 
 [Phone Icon](https://fonts.google.com/icons?selected=Material+Icons:call:&icon.query=call&icon.set=Material+Icons)
+
+# Shots of Websites I've Made
+
+To optimize load times and consistency, I made them all square (800x800) and .webp format.
