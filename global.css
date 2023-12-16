@@ -6,20 +6,34 @@
 
 * {
   font-family: 'Rubik', sans-serif;
+}
 
-  /*  Color scheme */
+:root {
+  /* (prefer-color-scheme: light) */
   --primary: #215481;
   --secondary: #808080;
-  --white-gray: #f7f7f7;
-
+  --background: #f7f7f7;
+  --text: #000000;
   --primary-light: #4d769a;
   --hover-color: rgba(0, 0, 0, 0.05);
+
+  --mobile-breakpoint: 600px;
+  /* FIXME: ADD BREAKPOINTS HERE FOR REFERENCE EVEN THOUGH THEY CAN'T BE USED IN MEDIA QUERIES */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: red;
+    --secondary: yellow;
+    --background: #222222;
+    --text: #ffffff;
+  }
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--white-gray);
+  background-color: var(--background);
 }
 
 main {
@@ -45,6 +59,7 @@ h6 {
 }
 
 p {
+  color: var(--text);
   font-size: large;
 }
 
@@ -114,7 +129,7 @@ nav {
 
 .nav-item {
   text-decoration: none;
-  color: var(--white-gray);
+  color: var(--background);
   letter-spacing: 1px;
   padding: 16px;
   display: flex;
@@ -127,7 +142,7 @@ nav {
 }
 
 .nav-item.active {
-  background-color: var(--white-gray);
+  background-color: var(--background);
   color: var(--primary);
   font-weight: bold;
 }
@@ -137,7 +152,7 @@ nav {
 }
 
 .nav-item:not(.active) .nav-icon {
-  fill: var(--white-gray);
+  fill: var(--background);
 }
 
 .nav-item:not(.active):hover {
@@ -191,6 +206,18 @@ nav {
 /* Hide corner logo on smaller screens */
 @media (max-width: 1279px) {
   .corner-logo {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .corner-logo.dark {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .corner-logo.light {
     display: none;
   }
 }

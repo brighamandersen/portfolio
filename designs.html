@@ -3,13 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" />
+    <link href="./favicon-light.ico" rel="icon" />
+    <link
+      href="./favicon-dark.ico"
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+    />
     <title>Brigham Andersen's Portfolio - Designs</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="global.css" />
+    <style>
+      .shot {
+        width: 100%;
+        height: 100%;
+      }
+
+      .designs-grid {
+        display: grid;
+        grid-template-columns: repeat(
+          3,
+          1fr
+        ); /* 3 items wide on laptop width */
+        gap: 1rem; /* Adjust the gap as needed */
+        padding: 1rem;
+        background-color: var(--primary);
+      }
+
+      /* @media (max-width: 959px) { */
+
+      @media (max-width: var(--mobile-breakpoint)) {
+        .designs-grid {
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); /* 2 items wide on tablet width */
+        }
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -57,8 +90,54 @@
     <main>
       <section class="designs-section">
         <h1 class="page-header">My Designs</h1>
+        <div class="designs-grid">
+          <img
+            src="./assets/shots/47fund1.webp"
+            alt="Silver Fund Web App Screenshot"
+            class="shot"
+          />
+          <img
+            src="./assets/shots/47fund2.webp"
+            alt="Silver Fund Web App Screenshot"
+            class="shot"
+          />
+          <img
+            src="./assets/shots/47fund3.webp"
+            alt="Silver Fund Web App Screenshot"
+            class="shot"
+          />
+          <img
+            src="./assets/shots/47fund4.webp"
+            alt="Silver Fund Web App Screenshot"
+            class="shot"
+          />
+          <img
+            src="./assets/shots/47fund5.webp"
+            alt="Silver Fund Web App Screenshot"
+            class="shot"
+          />
+          <img
+            src="./assets/shots/47fund6.webp"
+            alt="Silver Fund Web App Screenshot"
+            class="shot"
+          />
+          <img
+            src="./assets/shots/47fund7.webp"
+            alt="Silver Fund Web App Screenshot"
+            class="shot"
+          />
+        </div>
       </section>
     </main>
-    <img src="./assets/corner-logo.webp" alt="BA Logo" class="corner-logo" />
+    <img
+      src="./assets/corner-logo-dark.webp"
+      alt="BA Logo"
+      class="corner-logo dark"
+    />
+    <img
+      src="./assets/corner-logo-light.webp"
+      alt="BA Logo"
+      class="corner-logo light"
+    />
   </body>
 </html>
