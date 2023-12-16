@@ -9,24 +9,29 @@
 }
 
 :root {
-  /* (prefer-color-scheme: light) */
+  /* Light mode colors */
   --primary: #215481;
   --secondary: #808080;
   --background: #f7f7f7;
   --text: #000000;
-  --primary-light: #4d769a;
-  --hover-color: rgba(0, 0, 0, 0.05);
+  --primary-hover: rgba(250, 250, 250, 0.1);
+  --background-hover: rgba(0, 0, 0, 0.05);
 
+  /* Breakpoints (can't be used in media queries though */
   --mobile-breakpoint: 600px;
-  /* FIXME: ADD BREAKPOINTS HERE FOR REFERENCE EVEN THOUGH THEY CAN'T BE USED IN MEDIA QUERIES */
+  --tablet-breakpoint: 960px;
+  --desktop-breakpoint: 1280px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: red;
-    --secondary: yellow;
+    /* Dark mode colors */
+    --primary: #ffffff;
+    --secondary: #c3c3c3;
     --background: #222222;
-    --text: #ffffff;
+    --text: var(--secondary);
+    --primary-hover: rgba(0, 0, 0, 0.1);
+    --background-hover: rgba(250, 250, 250, 0.05);
   }
 }
 
@@ -119,7 +124,7 @@ nav {
 }
 
 .icon-button:hover {
-  background-color: var(--hover-color);
+  background-color: var(--background-hover);
   text-decoration: none;
 }
 
@@ -156,7 +161,7 @@ nav {
 }
 
 .nav-item:not(.active):hover {
-  background-color: var(--primary-light);
+  background-color: var(--primary-hover);
 }
 
 .nav-text {
@@ -164,7 +169,7 @@ nav {
 }
 
 /* Stack bio and picture vertically on small screens */
-@media (max-width: 959px) {
+@media (max-width: 960px) {
   .nav-text {
     display: none;
   }
@@ -203,8 +208,8 @@ nav {
   height: 120px;
 }
 
-/* Hide corner logo on smaller screens */
-@media (max-width: 1279px) {
+/* Hide corner logo on tablet and mobile */
+@media (max-width: 1280px) {
   .corner-logo {
     display: none;
   }
