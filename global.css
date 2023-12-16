@@ -108,6 +108,10 @@ nav {
   text-decoration: none;
 }
 
+.icon-button:hover svg {
+  fill: var(--primary);
+}
+
 .nav-item {
   text-decoration: none;
   color: var(--white-gray);

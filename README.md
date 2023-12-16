@@ -22,6 +22,8 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 
 [Top Languages Icons](https://devicon.dev/)
 
+[Vue Icon (Not from top languages site)](https://www.svgrepo.com/svg/327411/logo-vue)
+
 [Mail Icon](https://fonts.google.com/icons?selected=Material+Icons:mail_outline:&icon.query=email&icon.set=Material+Icons)
 
 [Phone Icon](https://fonts.google.com/icons?selected=Material+Icons:call:&icon.query=call&icon.set=Material+Icons)
