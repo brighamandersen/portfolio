@@ -23,19 +23,15 @@
 
       .designs-grid {
         display: grid;
-        grid-template-columns: repeat(
-          3,
-          1fr
-        ); /* 3 items wide on tablet andlaptop width */
-        gap: 2rem; /* Adjust the gap as needed */
+        /* 3 items wide on tablet and laptop width */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 600px /* var(--mobile-breakpoint) */) {
         .designs-grid {
-          grid-template-columns: repeat(
-            2,
-            1fr
-          ); /* 2 items wide on mobile width */
+          /* 2 items wide on mobile width */
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>

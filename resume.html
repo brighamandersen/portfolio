@@ -24,28 +24,22 @@
 
       .top-languages-grid {
         display: grid;
-        grid-template-columns: repeat(
-          4,
-          1fr
-        ); /* 4 items wide on laptop width */
+        /* 4 items wide on laptop width */
+        grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
       }
 
-      @media (max-width: 960px) {
+      @media (max-width: 960px  /* var(--tablet-breakpoint) */) {
         .top-languages-grid {
-          grid-template-columns: repeat(
-            3,
-            1fr
-          ); /* 3 items wide on tablet width */
+          /* 3 items wide on tablet width */
+          grid-template-columns: repeat(3, 1fr);
         }
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 600px /* var(--mobile-breakpoint) */) {
         .top-languages-grid {
-          grid-template-columns: repeat(
-            2,
-            1fr
-          ); /* 2 items wide on tablet width */
+          /* 2 items wide on tablet width */
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>

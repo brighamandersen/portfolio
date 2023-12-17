@@ -44,7 +44,7 @@ body {
 main {
   padding: 2rem;
   width: 100%;
-  max-width: 1024px;
+  max-width: var(--tablet-breakpoint); /* Content width maxes at tablet width */
   margin: 0 auto;
 }
 
@@ -168,8 +168,8 @@ nav {
   margin-left: 8px;
 }
 
-/* Stack bio and picture vertically on small screens */
-@media (max-width: 960px) {
+/* Don't show nav text on tablet and mobile, only nav icon */
+@media (max-width: 960px /* var(--tablet-breakpoint) */) {
   .nav-text {
     display: none;
   }
