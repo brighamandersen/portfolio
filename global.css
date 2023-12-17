@@ -200,6 +200,10 @@ nav {
   margin-left: 16px;
 }
 
+.shadowed {
+  box-shadow: 0 8px 8px var(--background-hover);
+}
+
 .corner-logo {
   position: fixed;
   bottom: 0;

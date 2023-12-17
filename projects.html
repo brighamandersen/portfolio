@@ -15,6 +15,24 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="global.css" />
+    <style>
+      .card {
+        background: #fff;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .card h2,
+      .card p {
+        margin-top: 0;
+        /* margin-bottom: 1rem; */
+      }
+
+      .card p {
+        margin-bottom: 0;
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -61,7 +79,351 @@
     </nav>
     <main>
       <section class="projects-section">
-        <h1 class="page-header">My Projects</h1>
+        <div class="header-icon-container">
+          <h1 class="page-header">My Projects</h1>
+          <a
+            href="https://github.com/brighambandersen?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Check out all my GitHub repos"
+            class="icon-button"
+          >
+            <svg class="icon icon-sm github-icon" viewBox="0 0 128 128">
+              <g>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"
+                ></path>
+                <path
+                  d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"
+                ></path>
+              </g>
+            </svg>
+          </a>
+        </div>
+        <div class="card shadowed">
+          <h2>Silver Fund Web App</h2>
+          <p>
+            Silver Fund Web App - A Stocks/Trades Performance Tracker/Predictor
+            Site. I created this while working as a Software Engineer for Silver
+            Fund (BYU's MBA Finance Program) during the second half of 2020.
+            After I left the project broke, so I recreated the front-end side of
+            things on my domain as a side project.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Adobe</h2>
+          <p>
+            For my Senior Capstone at BYU I'm on a team with 4 other developers
+            working for Adobe. We specifically work on Adobe Analytics.
+            Corporations like Walmart and Best Buy use it, but managers doing
+            basic analytics aren't the most technical, so we've been tasked with
+            enhancing their React front-end by revamping the workflow for
+            building out visualizations like line and bar charts.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Comics Browser</h2>
+          <p>
+            Online comics browser. Look through comics, then leave ratings and
+            comments. Made possible with an API for comic data, then created
+            with VueJS.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Command Shake</h2>
+          <p>
+            A script that automatically applies to jobs for me. Web scrapes the
+            BYU Handshake website when you search for any job and applies to all
+            the jobs with quick apply. Written in Python using Selenium.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>CS 312: Algorithm Design & Analysis</h2>
+          <p>
+            In this class at BYU, we went over several general approaches to
+            algorithm design, including Divide and Conquer, Graph-based, Greedy,
+            Dynamic Programming, Linear Programming, and Intelligent Search. We
+            tackled projects which solved the famous traveling salesman problem,
+            basic cryptography, primality testing, convex hulls, gene
+            sequencing, and networking routing. See the link for project
+            write-ups.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>French Toast Instructions</h2>
+          <p>
+            For my ENGL 316 Technical Writing class at BYU, we practiced
+            conveying ideas concisely by having to make an instruction manual or
+            recipe. My team of 4 made a pamphlet on how to make french toast.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Mother Earth Groceries</h2>
+          <p>
+            Sick of going in-person to the store just to see their selection?
+            This site showcases a grocery store and their unique product
+            offering, allowing users to search for specific items, then add
+            desired ones to their cart. Made using VueJS.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Hack Overflow</h2>
+          <p>
+            For CS 356 UI/UX Design class at BYU, my group of 3 had to make a
+            website prototype using Figma to solve a pain point. We noticed that
+            coding resources are mostly geared towards experienced developers,
+            so we made Hack Overflow, which simplifies resources like Stack
+            Overflow and W3 Schools into an all-in-one resource.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Instruct.Me</h2>
+          <p>
+            For an on-campus internship at BYU's Business School, I helped out
+            the Instruct.Me startup with designing their app from the ground up.
+            We used Figma to build high-fidelity interactive prototypes.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>iRecognize</h2>
+          <p>
+            For BYU's CS 356 UI/UX Design class project, my group of 3 made a
+            mobile app throughout the second half of the semester. We found that
+            it's hard to remember people's names, and sometimes important
+            details about where you two met or other relevant info about them.
+            We made a Figma prototype and then a Flutter app that demos how you
+            could use your GPS to locate those around you and be able to put
+            names to faces.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Jokester</h2>
+          <p>
+            A website which displays random coding and dad jokes, then allows
+            you to save your favorites so you can view them later. Uses Vanilla
+            JavaScript, HTML, and Bulma CSS (decided I'd try a different CS
+            framework on this one).
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Jolt</h2>
+          <p>
+            Enhancing a React Native application that's optimized both for
+            tablet and mobile. This app helps fast food companies like
+            Chick-fil-A and McDonald's with timeclocking, food safety, printing
+            labels, and more.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>K9 Directory</h2>
+          <p>
+            Consider yourself a dog-lover? Here's a simple React app made in
+            CodeSandbox which interfaces with an API to show random dog pictures
+            based on the breed you select.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Less is More</h2>
+          <p>
+            I plan to start making money off my websites. Aside from ad revenue
+            and subscription plans, I realize that being able to accept payments
+            from a user is an essential skill to have. To practice this I
+            leveraged Stripe API to make a simple prototype of how I could
+            charge for my services.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Melting Pot</h2>
+          <p>
+            For my final project for BYU CS 356 UI/UX Design class, we had to
+            make an app that fills a need for the Coloured People of South
+            Africa. After doing extensive research, I found that the those
+            people struggle to find their identify due to their mixed heritage.
+            I made a Figma prototype of how an app could scan their face using
+            facial recognition and then help them identify which facial features
+            correspond with their ancestral tribes.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Museum of Ordinary Objects</h2>
+          <p>
+            Random picture uploader/viewer that introduced me to MongoDB. Now
+            deprecated since previous hosting subscription expired.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>NBA Insider Hub</h2>
+          <p>
+            4 words: Basketball Player Search Index. Front-end client which
+            connects the balldontlie API, allowing users to see a table of NBA
+            Teams, then search by player name to see latest player stats. Uses
+            Vanilla JavaScript, HTML, and Bootstrap CSS.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>No End Insight</h2>
+          <p>
+            An online social media platform for sharing uplifting insights! Only
+            the front-end (HTML and Bootstrap CSS) was completed for school, and
+            I've since hooked it up with a back-end with live data as a fun side
+            project!
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>On The Line</h2>
+          <p>
+            A scorekeeper game built specifically around the basketball mini
+            game \9 On the Line\. I made this in React after getting frustrated
+            of keeping track of game scores on my own.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Pecos Solutions</h2>
+          <p>
+            A full-stack web app used to preview and download records/documents
+            by county. Features user authentication, custom theming, an Admin
+            Dashboard, and dynamic routing. Back-end is AWS, front-end is React,
+            using Styled Components and Material UI for styling.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Photo Bomb</h2>
+          <p>
+            Photos uploader, sharer, and viewer. Now deprecated since previous
+            hosting subscription expired.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Photography</h2>
+          <p>
+            Have an exciting event coming up and want to make sure you capture
+            those memories? Here's an photographer informational site where you
+            look into hiring a photographer. Created using HTML and Bootstrap
+            CSS.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Piano</h2>
+          <p>
+            On the go but dying to pound some horse teeth? Here's this online
+            mini piano (1 octave) created using Vanilla JavaScript, HTML, and
+            Standard CSS.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Ponderizer</h2>
+          <p>
+            Full-stack scripture memorization app - make an account, then save
+            and ponderize your favorite scripture verses! Created with VueJS,
+            Node, Express, and MongoDB. No longer hooked up to the back-end, but
+            feel free to check out the source code!
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Portfolio (This Website)</h2>
+          <p>
+            This website was made using React and styled using Material UI. It
+            was built with the purpose of helping prospective clients/employers
+            get a feel for who I am and the work I do. Though the site looks
+            pretty simple, I've added a lot of optimizations so that images load
+            quickly and there's no lag across the experience.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Scoreboard</h2>
+          <p>
+            Birthday present for my dad (he loves sports and stats, so he
+            naturally loves scorekeeping). I've made many sites in React, but
+            this was my first website made using Material UI for styling.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Silver Fund Visitor Site</h2>
+          <p>
+            My first no-code website, used making WordPress. The head of our
+            organization was looking to create an informational page for
+            visitors and wanted to be able to go in later and make adjustments
+            himself, so we opted to make the site in WordPress.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Simple Calculator</h2>
+          <p>
+            Simple reactive calculator that takes to inputs and returns the
+            result on the fly after performing basic arithmetic ( + - * / ).
+            Made with React.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Simple Counter</h2>
+          <p>
+            Ever run out of fingers while counting? Use this app to keep tally!
+            Simple Counter was one of my first React apps back when I was first
+            learning about React Hooks.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Snake</h2>
+          <p>
+            A blast from the past, this retro snake game will give you some
+            serious nostalgia. Made using Vanilla JavaScript, HTML, and Standard
+            CSS.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Svelte</h2>
+          <p>
+            A simple website I made using Svelte Kit which showcases basic
+            features of Svelte.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Tic Tac Toe</h2>
+          <p>
+            Don't have a pen and paper but one play some good 'ole Tic Tac Toe?
+            Here you go! This website was made using Vanilla JavaScript, HTML,
+            and Standard CSS.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Timekeeper</h2>
+          <p>
+            A modern redesign of online-stopwatch.com. Makes it easy to keep a
+            countdown or stopwatch going in the background of your browser.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Tweeter</h2>
+          <p>
+            For BYU's CS 340 Software Design Patterns class, we made a Twitter
+            Clone using Android on the front-end then Java and AWS (EC2, S3, API
+            Gateway, Lambdas, SQS, DynamoDB) on the back-end. We learned how to
+            not only make a working full-stack app, but how to design it so you
+            can reuse code and follow best practice.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>VBB Mentoring Portal</h2>
+          <p>
+            International Mentoring Booking Site used by Nike and Oracle. I did
+            full-stack development on this project, but focused primarily on
+            front-end. This project has been unstable since I left, so in the
+            cases that the Official Website
+            (https://portal.villagebookbuilders.org) is down or people want to
+            take a look at site features w/o making an account, I recreated the
+            front-end side of things on my domain as a side project.
+          </p>
+        </div>
+        <div class="card shadowed">
+          <h2>Weather Rain or Shine</h2>
+          <p>
+            A weather app that lets you search by city, then interacts with an
+            API to display current weather conditions, 5-day, and 3-hour
+            forecasts. Uses Vanilla JavaScript, HTML, and Bootstrap CSS.
+          </p>
+        </div>
       </section>
     </main>
     <img

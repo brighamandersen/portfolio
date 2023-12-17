@@ -20,7 +20,7 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 
 [LinkedIn Icon](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
 
-[Top Languages Icons](https://devicon.dev/)
+[Top Languages Icons and GitHub Icon](https://devicon.dev/)
 
 [Vue Icon (Not from top languages site)](https://www.svgrepo.com/svg/327411/logo-vue)
 
