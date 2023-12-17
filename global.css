@@ -23,7 +23,7 @@
   --desktop-breakpoint: 1280px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dddark) {
   :root {
     /* Dark mode colors */
     --primary: #ffffff;
