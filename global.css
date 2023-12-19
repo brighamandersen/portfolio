@@ -182,9 +182,6 @@ nav {
 ::-webkit-scrollbar-thumb {
   background: var(--secondary);
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #6d6d6d;
-}
 
 .page-header {
   font-size: 2.5em;
