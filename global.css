@@ -68,6 +68,10 @@ p {
   font-size: large;
 }
 
+a {
+  color: var(--secondary);
+}
+
 section {
   padding-bottom: 3rem;
 }
