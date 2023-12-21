@@ -12,10 +12,10 @@
   /* Light mode colors */
   --primary: #215481;
   --secondary: #808080;
-  --background: #f7f7f7;
-  --text: #000000;
-  --primary-hover: rgba(250, 250, 250, 0.1);
-  --background-hover: rgba(0, 0, 0, 0.05);
+  --background: #eeeeee; /* Backgrounds like background of active nav item and page background */
+  --surface: #ffffff; /* Surfaces like navbar and cards */
+  --text: #000000; /* Color of paragraph text */
+  --hover: rgba(0, 0, 0, 0.03);
 
   /* Breakpoints (can't be used in media queries though */
   --mobile-breakpoint: 600px;
@@ -23,15 +23,15 @@
   --desktop-breakpoint: 1280px;
 }
 
-@media (prefers-color-scheme: dddark) {
+@media (prefers-color-scheme: dark) {
   :root {
     /* Dark mode colors */
     --primary: #ffffff;
     --secondary: #c3c3c3;
     --background: #222222;
+    --surface: #373737;
     --text: var(--secondary);
-    --primary-hover: rgba(0, 0, 0, 0.1);
-    --background-hover: rgba(250, 250, 250, 0.05);
+    --hover: rgba(250, 250, 250, 0.04);
   }
 }
 
@@ -68,21 +68,12 @@ p {
   font-size: large;
 }
 
-a {
-  color: var(--secondary);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 section {
   padding-bottom: 3rem;
 }
 
 nav {
-  background-color: var(--primary);
+  background-color: var(--surface);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -124,17 +115,16 @@ nav {
 }
 
 .icon-button:hover {
-  background-color: var(--background-hover);
-  text-decoration: none;
+  background-color: var(--hover);
 }
 
-.icon-button:hover svg {
+.icon-button:hover .icon {
   fill: var(--primary);
 }
 
 .nav-item {
   text-decoration: none;
-  color: var(--background);
+  color: var(--secondary);
   letter-spacing: 1px;
   padding: 16px;
   display: flex;
@@ -142,26 +132,24 @@ nav {
   align-items: center;
 }
 
-.nav-item:hover {
-  text-decoration: none;
+.nav-item:hover .icon {
+  fill: var(--primary);
 }
 
 .nav-item.active {
   background-color: var(--background);
   color: var(--primary);
   font-weight: bold;
+  letter-spacing: 0.9px; /* Decreased spacing so that when it's bold it's about the same width as the other nav items */
+}
+
+.nav-item:not(.active):hover {
+  background-color: var(--hover);
+  color: var(--primary);
 }
 
 .nav-item.active .nav-icon {
   fill: var(--primary);
-}
-
-.nav-item:not(.active) .nav-icon {
-  fill: var(--background);
-}
-
-.nav-item:not(.active):hover {
-  background-color: var(--primary-hover);
 }
 
 .nav-text {
@@ -198,7 +186,14 @@ nav {
 }
 
 .shadowed {
-  box-shadow: 0 8px 8px var(--background-hover);
+  box-shadow: 0 8px 8px var(--hover);
+}
+
+/* Hide shadows in dark mode (they just look weird) */
+@media (prefers-color-scheme: dark) {
+  .shadowed {
+    box-shadow: none;
+  }
 }
 
 .corner-logo {
@@ -216,12 +211,14 @@ nav {
   }
 }
 
+/* Show only light version of logo in light mode */
 @media (prefers-color-scheme: light) {
   .corner-logo.dark {
     display: none;
   }
 }
 
+/* Show only dark version of logo in dark mode */
 @media (prefers-color-scheme: dark) {
   .corner-logo.light {
     display: none;
