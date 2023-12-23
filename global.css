@@ -110,6 +110,7 @@ nav {
 }
 
 .icon-button {
+  position: relative; /* Needed for tooltip */
   text-decoration: none;
   padding: 16px;
   border-radius: 50%;
@@ -231,4 +232,24 @@ nav {
   .corner-logo.light {
     display: none;
   }
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 150px;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -75px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  background-color: var(--hover);
+  color: var(--primary);
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  /* z-index: 1; */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.icon-button:hover .tooltip {
+  visibility: visible;
 }
