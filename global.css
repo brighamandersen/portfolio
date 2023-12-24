@@ -110,6 +110,7 @@ nav {
 }
 
 .icon-button {
+  position: relative; /* Needed for tooltip */
   text-decoration: none;
   padding: 16px;
   border-radius: 50%;
@@ -213,7 +214,7 @@ nav {
 }
 
 /* Hide corner logo on tablet and mobile */
-@media (max-width: 1280px) {
+@media (max-width: 1280px /* var(--desktop-breakpoint) */) {
   .corner-logo {
     display: none;
   }
@@ -229,6 +230,44 @@ nav {
 /* Show only dark version of logo in dark mode */
 @media (prefers-color-scheme: dark) {
   .corner-logo.light {
+    display: none;
+  }
+}
+
+/* Tooltip appears above by default */
+.tooltip {
+  font-size: 0.9em;
+  visibility: hidden;
+  bottom: 105%;
+  left: 50%;
+  width: 280px;
+  margin-left: -140px; /* Use half of the width to center the tooltip */
+  background-color: var(--hover);
+  color: var(--primary);
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  position: absolute;
+}
+
+.tooltip.small {
+  width: 200px;
+  margin-left: -100px; /* Use half of the width to center the tooltip */
+}
+
+.tooltip.bottom {
+  top: 105%;
+  bottom: auto;
+}
+
+/* Show the tooltip when you hover over an icon button (only on tablets and laptops) */
+.icon-button:hover .tooltip {
+  visibility: visible;
+}
+
+/* Hide tooltips on mobile devices (no space) */
+@media (max-width: 600px /* var(--mobile-breakpoint) */) {
+  .tooltip {
     display: none;
   }
 }
