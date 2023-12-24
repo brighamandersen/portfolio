@@ -94,17 +94,17 @@ nav {
   align-items: center;
 }
 
-.icon-sm {
+.icon.small {
   width: 24px;
   height: 24px;
 }
 
-.icon-md {
+.icon.medium {
   width: 100px;
   height: 100px;
 }
 
-.icon-lg {
+.icon.large {
   width: 200px;
   height: 200px;
 }
