@@ -23,7 +23,6 @@
       .resume-pdf {
         aspect-ratio: 8 / 11;
         width: 100%;
-        border: none;
       }
 
       .top-languages-grid {
@@ -96,6 +95,17 @@
         <div class="header-icon-container">
           <h1 class="page-header">My Resume</h1>
           <a
+            aria-label="Download resume PDF"
+            class="icon-button"
+            href="./assets/resume-brigham-andersen.pdf"
+            download
+          >
+            <svg class="icon small download-icon">
+              <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+            </svg>
+            <span class="tooltip">Download resume PDF</span>
+          </a>
+          <a
             aria-label="See all job experience on LinkedIn"
             class="icon-button"
             href="https://www.linkedin.com/in/brighamandersen/details/experience/"
@@ -110,12 +120,20 @@
             <span class="tooltip">See all job experience on LinkedIn</span>
           </a>
         </div>
-        <iframe
-          class="resume-pdf"
-          loading="lazy"
-          src="./assets/resume-brigham-andersen.pdf#navpanes=0&view=FitH"
-          title="Resume of Brigham Andersen"
-        ></iframe>
+        <a
+          aria-label="View resume full screen"
+          href="./assets/resume-brigham-andersen.pdf"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            src="./assets/resume-brigham-andersen.jpg"
+            alt="Resume of Brigham
+        Andersen"
+            title="Click to view resume in full screen"
+            class="resume-pdf"
+          />
+        </a>
       </section>
       <section class="top-languages-section">
         <h2>My Top Languages</h2>

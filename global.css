@@ -189,9 +189,8 @@ nav {
   align-items: center;
 }
 
-/* Have 16px margin between headers and icon buttons */
-.header-icon-container .icon-button {
-  margin-left: 16px;
+.header-icon-container .page-header {
+  margin-right: 16px;
 }
 
 .shadowed {

@@ -32,6 +32,8 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 
 [Phone Icon](https://fonts.google.com/icons?selected=Material+Icons:call:&icon.query=call&icon.set=Material+Icons)
 
+[Download Icon](https://fonts.google.com/icons?selected=Material+Icons:download:&icon.query=download&icon.style=Filled)
+
 ### Shots of Websites I've Made
 
 To optimize load times and consistency, I made them all square (800x800) and .webp format.
