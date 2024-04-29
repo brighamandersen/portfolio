@@ -30,7 +30,7 @@
 }
 
 /* Don't show project shots on tablet and mobile, only project text */
-@media (max-width: 960px /* var(--tablet-breakpoint) */) {
+@media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
   .project-shot {
     display: none;
   }

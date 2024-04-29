@@ -5,7 +5,7 @@
   gap: 2rem;
 }
 
-@media (max-width: 960px /* var(--tablet-breakpoint) */) {
+@media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
   .contact-methods-grid {
     /* 1 items wide on tablet width */
     grid-template-columns: repeat(1, 1fr);

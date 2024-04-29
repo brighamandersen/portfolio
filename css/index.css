@@ -26,7 +26,7 @@
 
 /* Stack bio and picture vertically on small screens */
 @media (max-width: 960px) {
-  /* var(--mobile-breakpoint) */
+  /* var(--mobile-breakpoint) but can't use in media queries */
   .bio-and-profile-pic {
     flex-direction: column;
   }

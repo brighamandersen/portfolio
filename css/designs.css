@@ -10,7 +10,7 @@
   gap: 2rem;
 }
 
-@media (max-width: 600px /* var(--mobile-breakpoint) */) {
+@media (max-width: 600px /* var(--mobile-breakpoint) but can't use in media queries */) {
   .designs-grid {
     /* 2 items wide on mobile width */
     grid-template-columns: repeat(2, 1fr);

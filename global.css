@@ -166,7 +166,7 @@ nav {
 }
 
 /* Don't show nav text on tablet and mobile, only nav icon */
-@media (max-width: 960px /* var(--tablet-breakpoint) */) {
+@media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
   .nav-text {
     display: none;
   }
@@ -213,7 +213,7 @@ nav {
 }
 
 /* Hide corner logo on tablet and mobile */
-@media (max-width: 1280px /* var(--desktop-breakpoint) */) {
+@media (max-width: 1280px /* var(--desktop-breakpoint) but can't use in media queries */) {
   .corner-logo {
     display: none;
   }
@@ -265,7 +265,7 @@ nav {
 }
 
 /* Hide tooltips on mobile devices (no space) */
-@media (max-width: 600px /* var(--mobile-breakpoint) */) {
+@media (max-width: 600px /* var(--mobile-breakpoint) but can't use in media queries */) {
   .tooltip {
     display: none;
   }
