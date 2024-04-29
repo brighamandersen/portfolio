@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="favicon-light.ico" rel="icon" />
+    <link href="./public/favicon-light.ico" rel="icon" />
     <link
-      href="favicon-dark.ico"
+      href="./public/favicon-dark.ico"
       rel="icon"
       media="(prefers-color-scheme: dark)"
     />
@@ -18,8 +18,27 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/designs.css" />
+    <link rel="stylesheet" href="global.css" />
+    <style>
+      .shot {
+        width: 100%;
+        height: 100%;
+      }
+
+      .designs-grid {
+        display: grid;
+        /* 3 items wide on tablet and laptop width */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      @media (max-width: 600px /* var(--mobile-breakpoint) but can't use in media queries */) {
+        .designs-grid {
+          /* 2 items wide on mobile width */
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -69,317 +88,317 @@
         <h1 class="page-header">My Designs</h1>
         <div class="designs-grid">
           <img
-            src="./assets/shots/silver-fund1.webp"
+            src="./public/shots/silver-fund1.webp"
             alt="Silver Fund Web App Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund2.webp"
+            src="./public/shots/silver-fund2.webp"
             alt="Silver Fund Web App Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund3.webp"
+            src="./public/shots/silver-fund3.webp"
             alt="Silver Fund Web App Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund4.webp"
+            src="./public/shots/silver-fund4.webp"
             alt="Silver Fund Web App Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund5.webp"
+            src="./public/shots/silver-fund5.webp"
             alt="Silver Fund Web App Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund6.webp"
+            src="./public/shots/silver-fund6.webp"
             alt="Silver Fund Web App Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund7.webp"
+            src="./public/shots/silver-fund7.webp"
             alt="Silver Fund Web App Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/adobe1.webp"
+            src="./public/shots/adobe1.webp"
             alt="Adobe Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/french-toast1.webp"
+            src="./public/shots/french-toast1.webp"
             alt="French Toast Instructions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/french-toast2.webp"
+            src="./public/shots/french-toast2.webp"
             alt="French Toast Instructions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/hack-overflow1.webp"
+            src="./public/shots/hack-overflow1.webp"
             alt="Hack Overflow Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/hack-overflow2.webp"
+            src="./public/shots/hack-overflow2.webp"
             alt="Hack Overflow Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/hack-overflow3.webp"
+            src="./public/shots/hack-overflow3.webp"
             alt="Hack Overflow Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/hack-overflow4.webp"
+            src="./public/shots/hack-overflow4.webp"
             alt="Hack Overflow Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/hack-overflow5.webp"
+            src="./public/shots/hack-overflow5.webp"
             alt="Hack Overflow Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/instructme1.webp"
+            src="./public/shots/instructme1.webp"
             alt="InstructMe Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/instructme2.webp"
+            src="./public/shots/instructme2.webp"
             alt="InstructMe Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/instructme3.webp"
+            src="./public/shots/instructme3.webp"
             alt="InstructMe Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/irecognize1.webp"
+            src="./public/shots/irecognize1.webp"
             alt="iRecognize Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/irecognize2.webp"
+            src="./public/shots/irecognize2.webp"
             alt="iRecognize Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/irecognize3.webp"
+            src="./public/shots/irecognize3.webp"
             alt="iRecognize Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/irecognize4.webp"
+            src="./public/shots/irecognize4.webp"
             alt="iRecognize Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/irecognize5.webp"
+            src="./public/shots/irecognize5.webp"
             alt="iRecognize Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/jokester1.webp"
+            src="./public/shots/jokester1.webp"
             alt="Jokester Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/jokester2.webp"
+            src="./public/shots/jokester2.webp"
             alt="Jokester Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/jolt1.webp"
+            src="./public/shots/jolt1.webp"
             alt="Jolt Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/jolt2.webp"
+            src="./public/shots/jolt2.webp"
             alt="Jolt Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/jolt3.webp"
+            src="./public/shots/jolt3.webp"
             alt="Jolt Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/melting-pot1.webp"
+            src="./public/shots/melting-pot1.webp"
             alt="Melting Pot Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/melting-pot2.webp"
+            src="./public/shots/melting-pot2.webp"
             alt="Melting Pot Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/nba-insider-hub1.webp"
+            src="./public/shots/nba-insider-hub1.webp"
             alt="Melting Pot Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/nba-insider-hub2.webp"
+            src="./public/shots/nba-insider-hub2.webp"
             alt="Melting Pot Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/no-end-insight1.webp"
+            src="./public/shots/no-end-insight1.webp"
             alt="No End Insight Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/no-end-insight2.webp"
+            src="./public/shots/no-end-insight2.webp"
             alt="No End Insight Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/no-end-insight3.webp"
+            src="./public/shots/no-end-insight3.webp"
             alt="No End Insight Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/no-end-insight4.webp"
+            src="./public/shots/no-end-insight4.webp"
             alt="No End Insight Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/no-end-insight5.webp"
+            src="./public/shots/no-end-insight5.webp"
             alt="No End Insight Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/pecos1.webp"
+            src="./public/shots/pecos1.webp"
             alt="Pecos Solutions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/pecos2.webp"
+            src="./public/shots/pecos2.webp"
             alt="Pecos Solutions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/pecos3.webp"
+            src="./public/shots/pecos3.webp"
             alt="Pecos Solutions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/pecos4.webp"
+            src="./public/shots/pecos4.webp"
             alt="Pecos Solutions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/pecos5.webp"
+            src="./public/shots/pecos5.webp"
             alt="Pecos Solutions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/pecos6.webp"
+            src="./public/shots/pecos6.webp"
             alt="Pecos Solutions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/pecos7.webp"
+            src="./public/shots/pecos7.webp"
             alt="Pecos Solutions Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/photography1.webp"
+            src="./public/shots/photography1.webp"
             alt="Photography Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/photography2.webp"
+            src="./public/shots/photography2.webp"
             alt="Photography Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/photography3.webp"
+            src="./public/shots/photography3.webp"
             alt="Photography Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/piano1.webp"
+            src="./public/shots/piano1.webp"
             alt="Piano Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/scoreboard1.webp"
+            src="./public/shots/scoreboard1.webp"
             alt="Scoreboard Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/scoreboard2.webp"
+            src="./public/shots/scoreboard2.webp"
             alt="Scoreboard Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund-visitor1.webp"
+            src="./public/shots/silver-fund-visitor1.webp"
             alt="Silver Fund Visitor Site Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund-visitor2.webp"
+            src="./public/shots/silver-fund-visitor2.webp"
             alt="Silver Fund Visitor Site Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund-visitor3.webp"
+            src="./public/shots/silver-fund-visitor3.webp"
             alt="Silver Fund Visitor Site Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/silver-fund-visitor4.webp"
+            src="./public/shots/silver-fund-visitor4.webp"
             alt="Silver Fund Visitor Site Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/snake1.webp"
+            src="./public/shots/snake1.webp"
             alt="Snake Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/tictactoe1.webp"
+            src="./public/shots/tictactoe1.webp"
             alt="Tic Tac Toe Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/tweeter1.webp"
+            src="./public/shots/tweeter1.webp"
             alt="Tweeter Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/tweeter2.webp"
+            src="./public/shots/tweeter2.webp"
             alt="Tweeter Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/vbb-portal1.webp"
+            src="./public/shots/vbb-portal1.webp"
             alt="VBB Mentoring Portal Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/vbb-portal2.webp"
+            src="./public/shots/vbb-portal2.webp"
             alt="VBB Mentoring Portal Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/vbb-portal3.webp"
+            src="./public/shots/vbb-portal3.webp"
             alt="VBB Mentoring Portal Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/venmo-tithing1.webp"
+            src="./public/shots/venmo-tithing1.webp"
             alt="Venmo Tithing Calculator Screenshot"
             class="shot shadowed"
           />
           <img
-            src="./assets/shots/weather-rain-or-shine1.webp"
+            src="./public/shots/weather-rain-or-shine1.webp"
             alt="Weather Rain or Shine Screenshot"
             class="shot shadowed"
           />
@@ -387,12 +406,12 @@
       </section>
     </main>
     <img
-      src="./assets/corner-logo-light.webp"
+      src="./public/corner-logo-light.webp"
       alt="BA Logo Light"
       class="corner-logo light"
     />
     <img
-      src="./assets/corner-logo-dark.webp"
+      src="./public/corner-logo-dark.webp"
       alt="BA Logo Dark"
       class="corner-logo dark"
     />

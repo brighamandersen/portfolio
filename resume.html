@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="favicon-light.ico" rel="icon" />
+    <link href="./public/favicon-light.ico" rel="icon" />
     <link
-      href="favicon-dark.ico"
+      href="./public/favicon-dark.ico"
       rel="icon"
       media="(prefers-color-scheme: dark)"
     />
@@ -18,8 +18,35 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="css/resume.css" />
+    <style>
+      .resume-pdf {
+        aspect-ratio: 8 / 11;
+        width: 100%;
+      }
+
+      .top-languages-grid {
+        display: grid;
+        /* 4 items wide on laptop width */
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+
+      @media (max-width: 960px  /* var(--tablet-breakpoint) but can't use in media queries */) {
+        .top-languages-grid {
+          /* 3 items wide on tablet width */
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px /* === var(--mobile-breakpoint) but can't use in media queries */) {
+        .top-languages-grid {
+          /* 2 items wide on tablet width */
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -71,7 +98,7 @@
           <a
             aria-label="Download resume PDF"
             class="icon-button"
-            href="./assets/resume-brigham-andersen.pdf"
+            href="./public/resume-brigham-andersen.pdf"
             download
           >
             <svg class="icon small download-icon">
@@ -96,12 +123,12 @@
         </div>
         <a
           aria-label="View resume full screen"
-          href="./assets/resume-brigham-andersen.pdf"
+          href="./public/resume-brigham-andersen.pdf"
           rel="noopener noreferrer"
           target="_blank"
         >
           <img
-            src="./assets/resume-brigham-andersen.jpg"
+            src="./public/resume-brigham-andersen.jpg"
             alt="Resume of Brigham
         Andersen"
             title="Click to view resume in full screen"
@@ -306,12 +333,12 @@
       </section>
     </main>
     <img
-      src="./assets/corner-logo-light.webp"
+      src="./public/corner-logo-light.webp"
       alt="BA Logo Light"
       class="corner-logo light"
     />
     <img
-      src="./assets/corner-logo-dark.webp"
+      src="./public/corner-logo-dark.webp"
       alt="BA Logo Dark"
       class="corner-logo dark"
     />
