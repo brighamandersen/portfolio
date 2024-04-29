@@ -1,4 +1,7 @@
-![README Cover Photo - Screenshot of Portfolio Website](./assets/README-cover.jpg)
+![README Cover Photo - Screenshot of Portfolio Website in Light Mode](./assets/README-cover-light.jpg)
+![README Cover Photo - Screenshot of Portfolio Website in Dark Mode](./assets/README-cover-dark.jpg)
+
+> The website adjusts between light and dark mode based on your device settings!
 
 # Intro
 
