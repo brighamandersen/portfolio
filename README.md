@@ -1,4 +1,4 @@
-![README Cover Photo - Screenshot of Portfolio Website](./README-cover.jpg)
+![README Cover Photo - Screenshot of Portfolio Website](./assets/README-cover.jpg)
 
 # Intro
 
