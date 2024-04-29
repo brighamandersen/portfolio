@@ -1,0 +1,25 @@
+.resume-pdf {
+  aspect-ratio: 8 / 11;
+  width: 100%;
+}
+
+.top-languages-grid {
+  display: grid;
+  /* 4 items wide on laptop width */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 960px  /* var(--tablet-breakpoint) */) {
+  .top-languages-grid {
+    /* 3 items wide on tablet width */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px /* var(--mobile-breakpoint) */) {
+  .top-languages-grid {
+    /* 2 items wide on tablet width */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
