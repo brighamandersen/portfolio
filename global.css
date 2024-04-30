@@ -171,8 +171,7 @@ section {
 .nav-item {
   text-decoration: none;
   color: var(--secondary);
-  letter-spacing: 1px;
-  padding: 16px;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -185,8 +184,6 @@ section {
 .nav-item.active {
   background-color: var(--background);
   color: var(--primary);
-  font-weight: bold;
-  letter-spacing: 0.9px; /* Decreased spacing so that when it's bold it's about the same width as the other nav items */
 }
 
 .nav-item:not(.active):hover {
@@ -200,10 +197,19 @@ section {
 
 .nav-text {
   margin-left: 8px;
+  letter-spacing: 1.5px;
 }
 
 /* Don't show nav text on tablet and mobile, only nav icon */
 @media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
+  .navbar {
+    justify-content: space-evenly;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
   .nav-text {
     display: none;
   }
