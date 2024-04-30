@@ -42,7 +42,7 @@ body {
 }
 
 main {
-  padding: 2rem;
+  padding: 32px;
   width: 100%;
   max-width: var(--tablet-breakpoint); /* Content width maxes at tablet width */
   margin: 0 auto;
@@ -63,8 +63,8 @@ h4,
 h5,
 h6 {
   color: var(--primary);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 p {
@@ -81,7 +81,7 @@ a:hover {
 }
 
 section {
-  padding-bottom: 3rem;
+  padding-bottom: 48px;
 }
 
 /* HEADER ICON CONTAINER */
@@ -149,7 +149,7 @@ section {
   display: grid;
   /* 3 items wide on laptop width */
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 32px;
 }
 
 @media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
@@ -171,7 +171,7 @@ section {
 .nav-item {
   text-decoration: none;
   color: var(--secondary);
-  padding: 1rem 1.5rem;
+  padding: 16px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -281,8 +281,8 @@ section {
   background-color: var(--hover);
   color: var(--primary);
   text-align: center;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 8px;
+  border-radius: 8px;
   position: absolute;
 }
 
