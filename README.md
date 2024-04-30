@@ -40,5 +40,3 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 ### Shots of Websites I've Made
 
 To optimize load times and consistency, I made them all square (800x800) and .webp format.
-
-I back up all these photos at [on Google Drive](https://drive.google.com/drive/folders/1_zeYQGXOWTF6EYDtZDBi32dJSmL7dQuW?usp=drive_link).
