@@ -84,12 +84,18 @@ section {
   padding-bottom: 3rem;
 }
 
-nav {
-  background-color: var(--surface);
+/* HEADER ICON CONTAINER */
+
+.header-icon-container {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
+
+.header-icon-container .page-header {
+  margin-right: 16px;
+}
+
+/* ICON */
 
 .icon {
   fill: var(--secondary);
@@ -113,6 +119,8 @@ nav {
   height: 200px;
 }
 
+/* ICON BUTTON */
+
 .icon-button {
   position: relative; /* Needed for tooltip */
   text-decoration: none;
@@ -133,6 +141,31 @@ nav {
 
 .icon-button:hover .icon {
   fill: var(--primary);
+}
+
+/* ICON GRID */
+
+.icon-grid {
+  display: grid;
+  /* 3 items wide on laptop width */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
+  .icon-grid {
+    /* 1 items wide on tablet width */
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* NAVBAR */
+
+.navbar {
+  background-color: var(--surface);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .nav-item {
@@ -176,7 +209,8 @@ nav {
   }
 }
 
-/* Custom scrollbar */
+/* SCROLLBAR */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -184,15 +218,7 @@ nav {
   background: var(--secondary);
 }
 
-.header-icon-container {
-  display: flex;
-  align-items: center;
-}
-
-.header-icon-container h1,
-.header-icon-container h2 {
-  margin-right: 16px;
-}
+/* SHADOWED */
 
 .shadowed {
   box-shadow: 0 8px 8px var(--hover);
@@ -204,6 +230,8 @@ nav {
     box-shadow: none;
   }
 }
+
+/* CORNER LOGO */
 
 .corner-logo {
   position: fixed;
@@ -233,6 +261,8 @@ nav {
     display: none;
   }
 }
+
+/* TOOLTIP */
 
 /* Tooltip appears above by default */
 .tooltip {
