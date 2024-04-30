@@ -38,7 +38,8 @@
       .profile-pic {
         width: 250px;
         height: 250px;
-        margin: 0 2rem;
+        margin: 2rem;
+        margin-top: 0;
         border-radius: 50%;
       }
 
@@ -55,15 +56,41 @@
       }
 
       /* Stack bio and picture vertically on small screens */
-      @media (max-width: 960px) {
-        /* var(--mobile-breakpoint) but can't use in media queries */
+      @media (max-width: 960px /* var(--mobile-breakpoint) but can't use in media queries */) {
         .bio-and-profile-pic {
-          flex-direction: column;
+          flex-direction: column-reverse;
         }
+      }
 
-        .profile-pic {
-          margin: 2rem;
-        }
+      .youtube-video-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2rem;
+      }
+
+      .youtube-video-link * {
+        width: 100%;
+        opacity: 0.8;
+      }
+
+      .youtube-thumbnail:hover {
+        opacity: 1;
+      }
+
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 48px;
+        opacity: 0.8;
+      }
+
+      .youtube-video-link:hover .play-button {
+        opacity: 1;
       }
     </style>
   </head>
@@ -163,7 +190,39 @@
             <span class="tooltip">Check out my YouTube channel</span>
           </a>
         </div>
+        <div>
+          <a
+            href="https://www.youtube.com/watch?v=al8g727OOfU"
+            target="_blank"
+            class="youtube-video-link"
+          >
+            <img
+              src="https://img.youtube.com/vi/al8g727OOfU/maxresdefault.jpg"
+              alt="Thumbnail"
+              class="youtube-thumbnail"
+            />
+            <svg class="play-button">
+              <path
+                d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+                fill="#f00"
+              ></path>
+              <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+            </svg>
+          </a>
+        </div>
         <iframe
+          allowfullscreen
+          class="youtube-video"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          src="https://www.youtube-nocookie.com/embed/al8g727OOfU?controls=0&modestbranding=1"
+          title="How to Import a CSV into MySQL using CLI for Beginners"
+        ></iframe>
+        <!-- <img
+          src="https://img.youtube.com/vi/al8g727OOfU/0.jpg"
+          alt="How to Import a CSV into MySQL using CLI for Beginners"
+        /> -->
+        <!-- <iframe
           allowfullscreen
           class="youtube-video"
           loading="lazy"
@@ -234,7 +293,7 @@
           referrerpolicy="strict-origin-when-cross-origin"
           src="https://www.youtube-nocookie.com/embed/jSeLgZsF5_U"
           title="Web Dev Preview - Brigham Andersen"
-        ></iframe>
+        ></iframe> -->
       </section>
     </main>
     <img
