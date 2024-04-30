@@ -40,3 +40,16 @@ I opted to download icons as svgs then copy the svg code directly in (had to cop
 ### Shots of Websites I've Made
 
 To optimize load times and consistency, I made them all square (800x800) and .webp format.
+
+### Adding videos to Latest Content
+
+Paste in this code and fill in the video id:
+
+```
+<iframe
+  src="https://www.youtube.com/embed/<youtube-video-id>?controls=0&modestbranding=1"
+></iframe>
+```
+
+Then take a screenshot of the result, compress as webp and display that as an `<img>` inside an `<a>` tag.
+The reason we do this is because doing normal YouTube embed is really slow, and when you navigate back it has to reload. We don't even need an inline player, just something that looks like the youtube video that when clicked takes you to the link.
