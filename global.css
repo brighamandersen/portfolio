@@ -1,3 +1,28 @@
+/* CUSTOM FONTS */
+
+@font-face {
+  font-family: 'Rubik-Light';
+  font-weight: 300;
+  src: url('./assets/Rubik-Light.woff2') format('woff2'),
+    url('./assets/Rubik-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 400;
+  src: url('./assets/Rubik-Regular.woff2') format('woff2'),
+    url('./assets/Rubik-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rubik-SemiBold';
+  font-weight: 600;
+  src: url('./assets/Rubik-SemiBold.woff2') format('woff2'),
+    url('./assets/Rubik-SemiBold.woff') format('woff');
+}
+
+/* GLOBAL STYLES */
+
 *,
 *::before,
 *::after {
@@ -48,28 +73,26 @@ main {
   margin: 0 auto;
 }
 
-code {
-  font-family: 'Consolas', 'Courier New', Courier, monospace;
-}
-
-h1 {
-  font-size: 2.5em;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  font-family: 'Rubik-SemiBold', 'Rubik', sans-serif;
   color: var(--primary);
   margin-top: 32px;
   margin-bottom: 32px;
 }
 
+h1 {
+  font-size: 2.5em;
+}
+
 p {
-  color: var(--text);
+  font-family: 'Rubik-Light', 'Rubik', sans-serif;
   font-size: large;
+  color: var(--text);
 }
 
 a {
