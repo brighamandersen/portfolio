@@ -45,3 +45,8 @@ To optimize load times and consistency, I made them all square (800x800) and .we
 
 At one point I was putting in my latest content on YouTube, but embedding YouTube players really slowed down the site and it didn't feel as useful. I tried making them be clickable thumbnail links rather than players, but that was going to require a lot of extra manual effort every time to add each thumbnail.
 With that in mind, I decided to just leave a link to my YouTube channel instead.
+
+### FAQ: Why is this codebase in Vanilla HTML, CSS, and JS?
+
+It's a matter of using the right tool for the job. It may not be the most cutting-edge tech stack, but all I need is a simple static site that shows text and images the same way every time, so using static HTML is a fine choice here.
+For context, I've tried a number of other options. When I first made my portfolio, it was in HTML. Then when I learned React for my job, I wanted to practice it, so I converted my portfolio to React. However, over time I realized that a SPA was the wrong choice for my portfolio site that was not dynamic but entirely static. So I went back to the basics with HTML and that's where I've stayed. And yes, I could use a static site generator like NextJS, Astro, or Gatsby, then have the nice benefits of React like reusable components and better paths without `.html` in them, but for me I'd rather just keep things simple while the website is simple. If the website becomes more complex, I might start to reach for a tool like that, but for now simpler is better.
