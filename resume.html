@@ -41,6 +41,20 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
+
+      /* Hide everything but resume image when printing */
+      @media print {
+        .navbar,
+        .header-icon-container,
+        .top-languages-section,
+        .corner-logo {
+          display: none;
+        }
+
+        section {
+          padding: 0;
+        }
+      }
     </style>
   </head>
   <body>
