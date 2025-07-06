@@ -50,3 +50,13 @@ With that in mind, I decided to just leave a link to my YouTube channel instead.
 
 It's a matter of using the right tool for the job. It may not be the most cutting-edge tech stack, but all I need is a simple static site that shows text and images the same way every time, so using static HTML is a fine choice here.
 For context, I've tried a number of other options. When I first made my portfolio, it was in HTML. Then when I learned React for my job, I wanted to practice it, so I converted my portfolio to React. However, over time I realized that a SPA was the wrong choice for my portfolio site that was not dynamic but entirely static. Having to load up React and all its packages was killing the initial page load times. So I went back to the basics with HTML and that's where I've stayed. And yes, I could use a static site generator like NextJS, Astro, or Gatsby, then have the nice benefits of React like reusable components and better paths without `.html` in them, but for me I'd rather just keep things simple while the website is simple. If the website becomes more complex, I might start to reach for a tool like that, but for now simpler is better.
+
+### FAQ: Why did the Top Languages section get removed?
+
+![Top Languages section screenshot](assets/archive_resume-page_top-languages.jpg)
+
+This was a pretty cool section where you could see my top languages and be able to click to be redirected to a search of my GitHub for instances where I had used the language. While this was cool and fun to make, I removed it for several reasons.
+
+- It was redundant as that information was already on my resume, so removing it means that now I have one less thing to maintain.
+- The GitHub repo search by language wasn't always incredible accurate as a lot of the experience I gain comes at work, but those repos cannot be public on my GitHub.
+- The main value in this section was showing what languages and tech stacks I'm proficient in, but I'm instead conveying this on the projects page where I'll lay out the tech stacks there and on the README pages.
