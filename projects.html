@@ -1,963 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./assets/favicon-light.ico" rel="icon" />
-    <link
-      href="./assets/favicon-dark.ico"
-      rel="icon"
-      media="(prefers-color-scheme: dark)"
-    />
-    <title>Brigham Andersen's Portfolio - Projects</title>
-    <meta
-      name="description"
-      content="Brigham Andersen's Portfolio - Projects, Author: Brigham Andersen, Category: Portfolio, Keywords: Portfolio, Brigham Andersen, Software Engineering, Productivity"
-    />
-    <link rel="stylesheet" href="global.css" />
-    <style>
-      .project-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-      }
 
-      .card {
-        background: var(--surface);
-        border-radius: 8px;
-        padding: 32px;
-        display: flex;
-        justify-content: space-between;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./assets/favicon-light.ico" rel="icon" />
+  <link href="./assets/favicon-dark.ico" rel="icon" media="(prefers-color-scheme: dark)" />
+  <title>Brigham Andersen's Portfolio - Projects</title>
+  <meta name="description"
+    content="Brigham Andersen's Portfolio - Projects, Author: Brigham Andersen, Category: Portfolio, Keywords: Portfolio, Brigham Andersen, Software Engineering, Productivity" />
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    .project-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
 
-      .card h2 {
-        margin-top: 16px;
-        margin-bottom: 16px;
-      }
+    .card {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-      .links {
-        margin-left: -16px;
-        margin-right: -16px;
-      }
+    .card h2 {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
 
-      .project-text {
-        display: flex;
-        flex-direction: column;
-      }
+    .links {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
 
+    .project-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-shot {
+      height: 250px;
+      width: 250px;
+      margin-left: 32px;
+      align-self: center;
+    }
+
+    /* Don't show project shots on tablet and mobile, only project text */
+    /* var(--tablet-breakpoint) but can't use in media queries */
+    @media (max-width: 960px) {
       .project-shot {
-        height: 250px;
-        width: 250px;
-        margin-left: 32px;
-        align-self: center;
+        display: none;
       }
+    }
 
-      /* Don't show project shots on tablet and mobile, only project text */
-      @media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
-        .project-shot {
-          display: none;
-        }
-      }
+    .projects-footer {
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
 
-      .projects-footer {
-        margin-top: 32px;
-        margin-bottom: 32px;
-      }
+    .projects-footer,
+    .projects-footer-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .projects-footer,
-      .projects-footer-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    .projects-footer-link svg {
+      margin-left: 8px;
+    }
 
-      .projects-footer-link svg {
-        margin-left: 8px;
-      }
+    .projects-footer-link:hover svg {
+      fill: var(--primary);
+    }
+  </style>
+</head>
 
-      .projects-footer-link:hover svg {
-        fill: var(--primary);
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar">
-      <a aria-label="Home" href="/" class="nav-item">
-        <svg class="icon small nav-icon home-icon">
-          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-        </svg>
-        <span class="nav-text">Home</span>
-      </a>
-      <a aria-label="Resume" href="resume.html" class="nav-item">
-        <svg class="icon small nav-icon resume-icon">
-          <path
-            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
-          />
-        </svg>
-        <span class="nav-text">Resume</span>
-      </a>
-      <a aria-label="Projects" href="projects.html" class="nav-item active">
-        <svg class="icon small nav-icon projects-icon" viewBox="0 0 640 512">
-          <path
-            d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"
-          />
-        </svg>
-        <span class="nav-text">Projects</span>
-      </a>
-      <a aria-label="Designs" href="designs.html" class="nav-item">
-        <svg class="icon small nav-icon designs-icon">
-          <path
-            d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
-          />
-        </svg>
-        <span class="nav-text">Designs</span>
-      </a>
-      <a aria-label="Contact" href="contact.html" class="nav-item">
-        <svg class="icon small nav-icon contact-icon">
-          <path
-            d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M12,6c1.93,0,3.5,1.57,3.5,3.5 c0,1.93-1.57,3.5-3.5,3.5s-3.5-1.57-3.5-3.5C8.5,7.57,10.07,6,12,6z M19,19H5v-0.23c0-0.62,0.28-1.2,0.76-1.58 C7.47,15.82,9.64,15,12,15s4.53,0.82,6.24,2.19c0.48,0.38,0.76,0.97,0.76,1.58V19z"
-          />
-        </svg>
-        <span class="nav-text">Contact</span>
-      </a>
-    </nav>
-    <main>
-      <section class="projects-section">
-        <div class="header-icon-container">
-          <h1 class="page-header">Featured Projects</h1>
-          <a
-            aria-label="See all my public repos on GitHub"
-            href="https://github.com/brighamandersen?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="icon-button"
-          >
-            <svg class="icon small github-icon" viewBox="0 0 24 24">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-              />
-            </svg>
-            <span class="tooltip">See all my public repos on GitHub</span>
-          </a>
+<body>
+  <nav class="navbar">
+    <a aria-label="Home" href="/" class="nav-item">
+      <svg class="icon small nav-icon home-icon">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+      </svg>
+      <span class="nav-text">Home</span>
+    </a>
+    <a aria-label="Resume" href="resume.html" class="nav-item">
+      <svg class="icon small nav-icon resume-icon">
+        <path
+          d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+      </svg>
+      <span class="nav-text">Resume</span>
+    </a>
+    <a aria-label="Projects" href="projects.html" class="nav-item active">
+      <svg class="icon small nav-icon projects-icon" viewBox="0 0 640 512">
+        <path
+          d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
+      </svg>
+      <span class="nav-text">Projects</span>
+    </a>
+    <a aria-label="Designs" href="designs.html" class="nav-item">
+      <svg class="icon small nav-icon designs-icon">
+        <path
+          d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+      </svg>
+      <span class="nav-text">Designs</span>
+    </a>
+    <a aria-label="Contact" href="contact.html" class="nav-item">
+      <svg class="icon small nav-icon contact-icon">
+        <path
+          d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M12,6c1.93,0,3.5,1.57,3.5,3.5 c0,1.93-1.57,3.5-3.5,3.5s-3.5-1.57-3.5-3.5C8.5,7.57,10.07,6,12,6z M19,19H5v-0.23c0-0.62,0.28-1.2,0.76-1.58 C7.47,15.82,9.64,15,12,15s4.53,0.82,6.24,2.19c0.48,0.38,0.76,0.97,0.76,1.58V19z" />
+      </svg>
+      <span class="nav-text">Contact</span>
+    </a>
+  </nav>
+  <main>
+    <section class="projects-section">
+      <div class="header-icon-container">
+        <h1 class="page-header">Featured Projects</h1>
+        <a aria-label="See all my public repos on GitHub" href="https://github.com/brighamandersen?tab=repositories"
+          target="_blank" rel="noopener noreferrer" class="icon-button">
+          <svg class="icon small github-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          <span class="tooltip">See all my public repos on GitHub</span>
+        </a>
+      </div>
+      <div class="project-cards">
+        <div class="card shadowed" id="retain">
+          <div class="project-text">
+            <h2>Retain</h2>
+            <p>
+              A clone of the popular online notetaking app, Google Keep! I'd
+              been meaning to make a full stack website for a while with
+              client-side React and a Node.js API to show my skill at that
+              stack, and this turned out to be just the project to do it! I
+              loved working on this project because I use Google Keep every
+              day, so it was fun to make something I'll actually use.
+            </p>
+            <div class="links">
+              <a href="https://retain.brighamandersen.com" target="_blank" rel="noopener noreferrer"
+                title="Site: https://retain.brighamandersen.com" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/retain" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/retain" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/retain1.webp" alt="Retain Screenshot" title="Retain Screenshot"
+            class="project-shot" />
         </div>
-        <div class="project-cards">
-          <div class="card shadowed" id="retain">
-            <div class="project-text">
-              <h2>Retain</h2>
-              <p>
-                A clone of the popular online notetaking app, Google Keep! I'd
-                been meaning to make a full stack website for a while with
-                client-side React and a Node.js API to show my skill at that
-                stack, and this turned out to be just the project to do it! I
-                loved working on this project because I use Google Keep every
-                day, so it was fun to make something I'll actually use.
-              </p>
-              <div class="links">
-                <a
-                  href="https://retain.brighamandersen.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://retain.brighamandersen.com"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/retain"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/retain"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/retain1.webp"
-              alt="Retain Screenshot"
-              title="Retain Screenshot"
-              class="project-shot"
-            />
-          </div>
-          <div class="card shadowed" id="no-end-insight">
-            <div class="project-text">
-              <h2>No End Insight</h2>
-              <p>
-                An online social media platform for sharing uplifting insights!
-                Only the front-end (HTML and Bootstrap CSS) was completed for
-                school, and I've since hooked it up with a back-end with live
-                data as a fun side project!
-              </p>
-              <div class="links">
-                <a
-                  href="https://insight.brighamandersen.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://insight.brighamandersen.com"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/no-end-insight"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/no-end-insight"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/no-end-insight1.webp"
-              alt="No End Insight Screenshot"
-              title="No End Insight Screenshot"
-              class="project-shot"
-            />
-          </div>
-          <div class="card shadowed" id="handshaker">
-            <div class="project-text">
-              <h2>Handshaker</h2>
-              <p>
-                A script that automatically applies to jobs for me. Web scrapes
-                the BYU Handshake website when you search for any job and
-                applies to all the jobs with quick apply. Written in Python
-                using Selenium.
-              </p>
-              <div class="links">
-                <a
-                  href="https://youtu.be/34GiNbJ4ECc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://youtu.be/34GiNbJ4ECc"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/handshaker"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/handshaker"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
+        <div class="card shadowed" id="no-end-insight">
+          <div class="project-text">
+            <h2>No End Insight</h2>
+            <p>
+              An online social media platform for sharing uplifting insights!
+              Only the front-end (HTML and Bootstrap CSS) was completed for
+              school, and I've since hooked it up with a back-end with live
+              data as a fun side project!
+            </p>
+            <div class="links">
+              <a href="https://insight.brighamandersen.com" target="_blank" rel="noopener noreferrer"
+                title="Site: https://insight.brighamandersen.com" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/no-end-insight" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/no-end-insight" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
             </div>
           </div>
-          <div class="card shadowed" id="portfolio">
-            <div class="project-text">
-              <h2>Portfolio (This Website)</h2>
-              <p>
-                This portfolio was built with the purpose of helping prospective
-                clients/employers get a feel for who I am and the work I do.
-                Though the site looks pretty simple, I've added a lot of
-                optimizations so that images load quickly and there's no lag
-                across the experience. This website has gone through many
-                iterations, being my main home page. It was originally made in
-                React and styled with Material UI, but I realized that I could
-                reduce load times and have a better tool for my use case by
-                going back to just standard HTML and CSS, so I did just that.
-                Pro tip -- try changing your device settings between light and
-                dark mode! You'll notice that my website will appear in light or
-                dark mode accordingly!
-              </p>
-              <div class="links">
-                <a
-                  href="https://brighamandersen.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://brighamandersen.com"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/portfolio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/portfolio"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
+          <img src="./assets/shots/no-end-insight1.webp" alt="No End Insight Screenshot"
+            title="No End Insight Screenshot" class="project-shot" />
+        </div>
+        <div class="card shadowed" id="handshaker">
+          <div class="project-text">
+            <h2>Handshaker</h2>
+            <p>
+              A script that automatically applies to jobs for me. Web scrapes
+              the BYU Handshake website when you search for any job and
+              applies to all the jobs with quick apply. Written in Python
+              using Selenium.
+            </p>
+            <div class="links">
+              <a href="https://youtu.be/34GiNbJ4ECc" target="_blank" rel="noopener noreferrer"
+                title="Site: https://youtu.be/34GiNbJ4ECc" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/handshaker" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/handshaker" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
             </div>
-          </div>
-          <div class="card shadowed" id="react-portfolio">
-            <div class="project-text">
-              <h2>React Portfolio</h2>
-              <p>
-                So this portfolio website was actually first created in React! I
-                had been using it for my work and naturally I wanted to practice
-                my skills with it. Over time however, I realized that it wasn't
-                the right tool for the job, so I remade the site in HTML and
-                CSS. This project still is a great showcase of the pros of React
-                such as intuitive JSX syntax that is both declarative, readable,
-                and reusable. It was also made using Material UI. For such a
-                simple project, I realized that I could just do my own styling,
-                so I eventually moved away from that as well.
-              </p>
-              <div class="links">
-                <a
-                  href="https://github.com/brighamandersen/react-portfolio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/react-portfolio"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadowed" id="silver-fund">
-            <div class="project-text">
-              <h2>Silver Fund Web App</h2>
-              <p>
-                Silver Fund Web App - A Stocks/Trades Performance
-                Tracker/Predictor Site. I created this while working as a
-                Software Engineer for Silver Fund (BYU's MBA Finance Program)
-                during the second half of 2020. After I left the project broke,
-                so I recreated the front-end side of things on my domain as a
-                side project.
-              </p>
-              <div class="links">
-                <a
-                  href="https://silverfund.brighamandersen.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://silverfund.brighamandersen.com"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/silver-fund"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/silver-fund"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/silver-fund1.webp"
-              alt="Silver Fund Web App Screenshot"
-              title="Silver Fund Web App Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="approachable">
-            <div class="project-text">
-              <h2>Approachable App</h2>
-              <p>
-                My friend Taylor English and I, both entrepreneurial-minded
-                Computer Science grads, created Approachable—an app designed to
-                help people connect more easily in public spaces like libraries,
-                cafes, or networking events. Our generation often struggles with
-                social interaction, so we wanted to make it simpler to meet new
-                people by showing you who nearby shares your interests and
-                talents, giving you instant conversation starters. You can also
-                see reminders of people’s names and past conversations to build
-                stronger connections over time. For this project, Taylor focused
-                on the iOS front end in Swift, while I built the backend with
-                Node.js (using Express.js, SQLite, and Prisma). It’s not fully
-                complete, but feel free to explore the repository to see my
-                backend implementation so far.
-              </p>
-              <div class="links">
-                <a
-                  href="https://github.com/brighamandersen/approachable-backend"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/approachable-backend"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="card shadowed" id="adobe">
-            <div class="project-text">
-              <h2>Adobe</h2>
-              <p>
-                For my Senior Capstone at BYU I'm on a team with 4 other
-                developers working for Adobe. We specifically work on Adobe
-                Analytics. Corporations like Walmart and Best Buy use it, but
-                managers doing basic analytics aren't the most technical, so
-                we've been tasked with enhancing their React front-end by
-                revamping the workflow for building out visualizations like line
-                and bar charts.
-              </p>
-              <div class="links">
-                <a
-                  href="https://experience.adobe.com/#/@aauniversity/so:adobea8cf/analytics"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://experience.adobe.com/#/@aauniversity/so:adobea8cf/analytics"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/adobe1.webp"
-              alt="Adobe Screenshot"
-              title="Adobe Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="pecos">
-            <div class="project-text">
-              <h2>Pecos Solutions</h2>
-              <p>
-                A full-stack web app used to preview and download
-                records/documents by county. Features user authentication,
-                custom theming, an Admin Dashboard, and dynamic routing.
-                Back-end is AWS, front-end is React, using Styled Components and
-                Material UI for styling.
-              </p>
-              <div class="links">
-                <a
-                  href="https://pecos-solutions.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://pecos-solutions.com"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/pecos1.webp"
-              alt="Pecos Solutions Screenshot"
-              title="Pecos Solutions Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="internalize">
-            <div class="project-text">
-              <h2>Internalize</h2>
-              <p>
-                This is a native Android app that helps you memorize passages
-                using fill-in-the-blank exercises. I initially built it in
-                Flutter because I thought I needed a cross-platform solution,
-                but after realizing the MVP would mainly be for my own use while
-                refining the user experience, I decided to rebuild it in Jetpack
-                Compose for better performance and to strengthen my native
-                Android skills, which aligned more closely with my goals.
-              </p>
-              <div class="links">
-                <a
-                  href="https://github.com/brighamandersen/internalize"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/internalize"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/internalize1.webp"
-              alt="Internalize Screenshot"
-              title="Internalize Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="tweeter">
-            <div class="project-text">
-              <h2>Tweeter</h2>
-              <p>
-                For BYU's CS 340 Software Design Patterns class, we made a
-                Twitter Clone using Android on the front-end then Java and AWS
-                (EC2, S3, API Gateway, Lambdas, SQS, DynamoDB) on the back-end.
-                We learned how to not only make a working full-stack app, but
-                how to design it so you can reuse code and follow best practice.
-              </p>
-              <div class="links">
-                <a
-                  href="https://github.com/brighamandersen/cs340/tree/main/tweeter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/cs340/tree/main/tweeter"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/tweeter1.webp"
-              alt="Tweeter Screenshot"
-              title="Tweeter Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="optiplex">
-            <div class="project-text">
-              <h2>Optiplex Web Server</h2>
-              <p>
-                I got sick of paying AWS, Digital Ocean, Vercel, and other web
-                hosting companies to host my websites. As you may have already
-                realized, I tried a good amount of services but for my use case
-                of using it for personal projects, they didn't get a ton of
-                traffic so paying $5 a month or more seemed ridiculous to me. I
-                got an old Dell Optiplex Mini PC for cheap then went through the
-                process of figuring out router configurations, dynamic DNS,
-                exposing IP addresses, port forwarding, HTTPS Certification,
-                NGINX configurations, bash scripting, and other networking
-                concepts along the way. It took a while to get everything set
-                up, but it was a great learning experience for me and now I
-                don't have to pay recurring fees to host my websites (our
-                internet/electricity is also free where I live). Now I can
-                easily host static and full stack websites on my server. I have
-                scripts to easily pull changes from all my repos and redeploy
-                all my sites. For security reasons I've chosen to leave my repo
-                with all my optiplex server configurations private, but contact
-                me if you'd like specific access.
-              </p>
-            </div>
-          </div>
-          <div class="card shadowed" id="tutorials">
-            <div class="project-text">
-              <h2>Tutorials</h2>
-              <p>
-                I love teaching, especially helping people learn to code. I’ve
-                volunteered in many settings, from local elementary schools and
-                online seminars to tutoring African Malawi refugees in HTML and
-                CSS so they can build sustainable careers as web developers.
-                I’ve also helped American college students master JavaScript and
-                other core languages. There’s nothing more satisfying than
-                seeing that light bulb go off when someone finally understands a
-                challenging concept. You can find more on my GitHub, YouTube
-                channel, and my portfolio site, brighamandersen.com.
-              </p>
-              <div class="links">
-                <a
-                  href="https://www.youtube.com/channel/UC5h98VfEfhqHkSMlt4ejCeg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://www.youtube.com/channel/UC5h98VfEfhqHkSMlt4ejCeg"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/tutorials"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/tutorials"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/tutorials1.webp"
-              alt="Tutorials Screenshot"
-              title="Tutorials Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="jolt">
-            <div class="project-text">
-              <h2>Jolt</h2>
-              <p>
-                Enhancing a React Native application that's optimized both for
-                tablet and mobile. This app helps fast food companies like
-                Chick-fil-A and McDonald's with timeclocking, food safety,
-                printing labels, and more. For company privacy reasons I can't
-                share the repo we work in, but I can share snippets of code I've
-                written there upon request.
-              </p>
-              <div class="links">
-                <a
-                  href="https://drive.google.com/file/d/1EQidafXhRUGh56CLcJoGEhrAPRzUSGQC/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://drive.google.com/file/d/1EQidafXhRUGh56CLcJoGEhrAPRzUSGQC/view?usp=sharing"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/jolt1.webp"
-              alt="Jolt Screenshot"
-              title="Jolt Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="irecognize">
-            <div class="project-text">
-              <h2>iRecognize</h2>
-              <p>
-                For BYU's CS 356 UI/UX Design class project, my group of 3 made
-                a mobile app throughout the second half of the semester. We
-                found that it's hard to remember people's names, and sometimes
-                important details about where you two met or other relevant info
-                about them. We made a Figma prototype and then a Flutter app
-                that demos how you could use your GPS to locate those around you
-                and be able to put names to faces.
-              </p>
-              <div class="links">
-                <a
-                  href="https://drive.google.com/file/d/1xsEqwsDENCCvsRq3Uq4T6nzvK1ElvdfV/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://drive.google.com/file/d/1xsEqwsDENCCvsRq3Uq4T6nzvK1ElvdfV/view?usp=sharing"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/irecognize"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/irecognize"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/irecognize1.webp"
-              alt="iRecognize Screenshot"
-              title="iRecognize Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="instructme">
-            <div class="project-text">
-              <h2>Instruct.me</h2>
-              <p>
-                For an on-campus internship at BYU's Business School, I helped
-                out the Instruct.Me startup with designing their app from the
-                ground up. We used Figma to build high-fidelity interactive
-                prototypes.
-              </p>
-              <div class="links">
-                <a
-                  href="https://drive.google.com/file/d/1iHpmR9OCVDQchdy5udaxo5SbWqCKYL3V/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://drive.google.com/file/d/1iHpmR9OCVDQchdy5udaxo5SbWqCKYL3V/view?usp=sharing"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/instructme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/instructme"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/instructme1.webp"
-              alt="Instruct.Me Screenshot"
-              title="Instruct.Me Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="melting-pot">
-            <div class="project-text">
-              <h2>Melting Pot</h2>
-              <p>
-                For my final project for BYU CS 356 UI/UX Design class, we had
-                to make an app that fills a need for the Coloured People of
-                South Africa. After doing extensive research, I found that the
-                those people struggle to find their identify due to their mixed
-                heritage. I made a Figma prototype of how an app could scan
-                their face using facial recognition and then help them identify
-                which facial features correspond with their ancestral tribes.
-              </p>
-              <div class="links">
-                <a
-                  href="https://www.figma.com/proto/OpqKlkSOyQ4QgO900BjQyb/Melting-Pot?node-id=3%3A53"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://www.figma.com/proto/OpqKlkSOyQ4QgO900BjQyb/Melting-Pot?node-id=3%3A53"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/melting-pot"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/melting-pot"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/melting-pot1.webp"
-              alt="Melting Pot Screenshot"
-              title="Melting Pot Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="venmo-tithing">
-            <div class="project-text">
-              <h2>Venmo Tithing Calculator</h2>
-              <p>
-                Automatically find out how much tithing you pay from your venmo
-                income in just a few clicks! My mom came to me, tired of
-                manually tallying up her income from Venmo by hand, then
-                calculating the tithing on it. I made this site to automate that
-                whole process. Uses Flask with HTML and CSS.
-              </p>
-              <div class="links">
-                <a
-                  href="https://venmo-tithing.brighamandersen.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://venmo-tithing.brighamandersen.com"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/venmo-tithing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/venmo-tithing"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/venmo-tithing1.webp"
-              alt="Venmo Tithing Calculator Screenshot"
-              title="Venmo Tithing Calculator Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
-          </div>
-          <div class="card shadowed" id="vbb-portal">
-            <div class="project-text">
-              <h2>VBB Mentoring Portal</h2>
-              <p>
-                I worked as a Full Stack Developer intern at Village Book
-                Builders (VBB), contributing to the International Mentoring
-                Booking Site used by organizations like Nike and Oracle. While I
-                developed both the front end (ReactJS) and back end (Django), my
-                main focus was front-end implementation. Since I left, the
-                official website has been unstable, so with VBB’s permission, I
-                recreated the front end on my own domain as a portfolio project.
-                The original app included authentication and appointment
-                booking, but the recreated version uses local storage and allows
-                anyone to explore the site without logging in.
-              </p>
-              <div class="links">
-                <a
-                  href="https://vbb.brighamandersen.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Site: https://vbb.brighamandersen.com"
-                  class="icon-button"
-                >
-                  <svg class="icon small site-icon">
-                    <path
-                      d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/brighamandersen/vbb-portal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Source Code: https://github.com/brighamandersen/vbb-portal"
-                  class="icon-button"
-                >
-                  <svg class="icon small github-icon" viewBox="0 0 24 24">
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <img
-              src="./assets/shots/vbb-portal1.webp"
-              alt="VBB Mentoring Portal Screenshot"
-              title="VBB Mentoring Portal Screenshot"
-              class="project-shot"
-              loading="lazy"
-            />
           </div>
         </div>
-        <p class="projects-footer">
-          <a
-            href="https://github.com/brighamandersen?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="projects-footer-link"
-          >
-            <span>See all my public repos on GitHub</span>
-            <svg class="icon small github-icon" viewBox="0 0 24 24">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-              />
-            </svg>
-          </a>
-        </p>
-      </section>
-    </main>
-    <img
-      src="./assets/corner-logo-light.webp"
-      alt="BA Logo Light"
-      title="BA Logo Light"
-      class="corner-logo light"
-      loading="lazy"
-    />
-    <img
-      src="./assets/corner-logo-dark.webp"
-      alt="BA Logo Dark"
-      title="BA Logo Dark"
-      class="corner-logo dark"
-      loading="lazy"
-    />
-  </body>
+        <div class="card shadowed" id="portfolio">
+          <div class="project-text">
+            <h2>Portfolio (This Website)</h2>
+            <p>
+              This portfolio was built with the purpose of helping prospective
+              clients/employers get a feel for who I am and the work I do.
+              Though the site looks pretty simple, I've added a lot of
+              optimizations so that images load quickly and there's no lag
+              across the experience. This website has gone through many
+              iterations, being my main home page. It was originally made in
+              React and styled with Material UI, but I realized that I could
+              reduce load times and have a better tool for my use case by
+              going back to just standard HTML and CSS, so I did just that.
+              Pro tip -- try changing your device settings between light and
+              dark mode! You'll notice that my website will appear in light or
+              dark mode accordingly!
+            </p>
+            <div class="links">
+              <a href="https://brighamandersen.com" target="_blank" rel="noopener noreferrer"
+                title="Site: https://brighamandersen.com" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/portfolio" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/portfolio" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card shadowed" id="react-portfolio">
+          <div class="project-text">
+            <h2>React Portfolio</h2>
+            <p>
+              So this portfolio website was actually first created in React! I
+              had been using it for my work and naturally I wanted to practice
+              my skills with it. Over time however, I realized that it wasn't
+              the right tool for the job, so I remade the site in HTML and
+              CSS. This project still is a great showcase of the pros of React
+              such as intuitive JSX syntax that is both declarative, readable,
+              and reusable. It was also made using Material UI. For such a
+              simple project, I realized that I could just do my own styling,
+              so I eventually moved away from that as well.
+            </p>
+            <div class="links">
+              <a href="https://github.com/brighamandersen/react-portfolio" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/react-portfolio" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card shadowed" id="silver-fund">
+          <div class="project-text">
+            <h2>Silver Fund Web App</h2>
+            <p>
+              Silver Fund Web App - A Stocks/Trades Performance
+              Tracker/Predictor Site. I created this while working as a
+              Software Engineer for Silver Fund (BYU's MBA Finance Program)
+              during the second half of 2020. After I left the project broke,
+              so I recreated the front-end side of things on my domain as a
+              side project.
+            </p>
+            <div class="links">
+              <a href="https://silverfund.brighamandersen.com" target="_blank" rel="noopener noreferrer"
+                title="Site: https://silverfund.brighamandersen.com" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/silver-fund" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/silver-fund" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/silver-fund1.webp" alt="Silver Fund Web App Screenshot"
+            title="Silver Fund Web App Screenshot" class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="approachable">
+          <div class="project-text">
+            <h2>Approachable App</h2>
+            <p>
+              My friend Taylor English and I, both entrepreneurial-minded
+              Computer Science grads, created Approachable—an app designed to
+              help people connect more easily in public spaces like libraries,
+              cafes, or networking events. Our generation often struggles with
+              social interaction, so we wanted to make it simpler to meet new
+              people by showing you who nearby shares your interests and
+              talents, giving you instant conversation starters. You can also
+              see reminders of people’s names and past conversations to build
+              stronger connections over time. For this project, Taylor focused
+              on the iOS front end in Swift, while I built the backend with
+              Node.js (using Express.js, SQLite, and Prisma). It’s not fully
+              complete, but feel free to explore the repository to see my
+              backend implementation so far.
+            </p>
+            <div class="links">
+              <a href="https://github.com/brighamandersen/approachable-backend" target="_blank"
+                rel="noopener noreferrer" title="Source Code: https://github.com/brighamandersen/approachable-backend"
+                class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card shadowed" id="adobe">
+          <div class="project-text">
+            <h2>Adobe</h2>
+            <p>
+              For my Senior Capstone at BYU I'm on a team with 4 other
+              developers working for Adobe. We specifically work on Adobe
+              Analytics. Corporations like Walmart and Best Buy use it, but
+              managers doing basic analytics aren't the most technical, so
+              we've been tasked with enhancing their React front-end by
+              revamping the workflow for building out visualizations like line
+              and bar charts.
+            </p>
+            <div class="links">
+              <a href="https://experience.adobe.com/#/@aauniversity/so:adobea8cf/analytics" target="_blank"
+                rel="noopener noreferrer"
+                title="Site: https://experience.adobe.com/#/@aauniversity/so:adobea8cf/analytics" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/adobe1.webp" alt="Adobe Screenshot" title="Adobe Screenshot" class="project-shot"
+            loading="lazy" />
+        </div>
+        <div class="card shadowed" id="pecos">
+          <div class="project-text">
+            <h2>Pecos Solutions</h2>
+            <p>
+              A full-stack web app used to preview and download
+              records/documents by county. Features user authentication,
+              custom theming, an Admin Dashboard, and dynamic routing.
+              Back-end is AWS, front-end is React, using Styled Components and
+              Material UI for styling.
+            </p>
+            <div class="links">
+              <a href="https://pecos-solutions.com" target="_blank" rel="noopener noreferrer"
+                title="Site: https://pecos-solutions.com" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/pecos1.webp" alt="Pecos Solutions Screenshot" title="Pecos Solutions Screenshot"
+            class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="internalize">
+          <div class="project-text">
+            <h2>Internalize</h2>
+            <p>
+              This is a native Android app that helps you memorize passages
+              using fill-in-the-blank exercises. I initially built it in
+              Flutter because I thought I needed a cross-platform solution,
+              but after realizing the MVP would mainly be for my own use while
+              refining the user experience, I decided to rebuild it in Jetpack
+              Compose for better performance and to strengthen my native
+              Android skills, which aligned more closely with my goals.
+            </p>
+            <div class="links">
+              <a href="https://github.com/brighamandersen/internalize" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/internalize" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/internalize1.webp" alt="Internalize Screenshot" title="Internalize Screenshot"
+            class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="tweeter">
+          <div class="project-text">
+            <h2>Tweeter</h2>
+            <p>
+              For BYU's CS 340 Software Design Patterns class, we made a
+              Twitter Clone using Android on the front-end then Java and AWS
+              (EC2, S3, API Gateway, Lambdas, SQS, DynamoDB) on the back-end.
+              We learned how to not only make a working full-stack app, but
+              how to design it so you can reuse code and follow best practice.
+            </p>
+            <div class="links">
+              <a href="https://github.com/brighamandersen/cs340/tree/main/tweeter" target="_blank"
+                rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/cs340/tree/main/tweeter" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/tweeter1.webp" alt="Tweeter Screenshot" title="Tweeter Screenshot"
+            class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="optiplex">
+          <div class="project-text">
+            <h2>Optiplex Web Server</h2>
+            <p>
+              I got sick of paying AWS, Digital Ocean, Vercel, and other web
+              hosting companies to host my websites. As you may have already
+              realized, I tried a good amount of services but for my use case
+              of using it for personal projects, they didn't get a ton of
+              traffic so paying $5 a month or more seemed ridiculous to me. I
+              got an old Dell Optiplex Mini PC for cheap then went through the
+              process of figuring out router configurations, dynamic DNS,
+              exposing IP addresses, port forwarding, HTTPS Certification,
+              NGINX configurations, bash scripting, and other networking
+              concepts along the way. It took a while to get everything set
+              up, but it was a great learning experience for me and now I
+              don't have to pay recurring fees to host my websites (our
+              internet/electricity is also free where I live). Now I can
+              easily host static and full stack websites on my server. I have
+              scripts to easily pull changes from all my repos and redeploy
+              all my sites. For security reasons I've chosen to leave my repo
+              with all my optiplex server configurations private, but contact
+              me if you'd like specific access.
+            </p>
+          </div>
+        </div>
+        <div class="card shadowed" id="tutorials">
+          <div class="project-text">
+            <h2>Tutorials</h2>
+            <p>
+              I love teaching, especially helping people learn to code. I’ve
+              volunteered in many settings, from local elementary schools and
+              online seminars to tutoring African Malawi refugees in HTML and
+              CSS so they can build sustainable careers as web developers.
+              I’ve also helped American college students master JavaScript and
+              other core languages. There’s nothing more satisfying than
+              seeing that light bulb go off when someone finally understands a
+              challenging concept. You can find more on my GitHub, YouTube
+              channel, and my portfolio site, brighamandersen.com.
+            </p>
+            <div class="links">
+              <a href="https://www.youtube.com/channel/UC5h98VfEfhqHkSMlt4ejCeg" target="_blank"
+                rel="noopener noreferrer" title="Site: https://www.youtube.com/channel/UC5h98VfEfhqHkSMlt4ejCeg"
+                class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/tutorials" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/tutorials" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/tutorials1.webp" alt="Tutorials Screenshot" title="Tutorials Screenshot"
+            class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="jolt">
+          <div class="project-text">
+            <h2>Jolt</h2>
+            <p>
+              Enhancing a React Native application that's optimized both for
+              tablet and mobile. This app helps fast food companies like
+              Chick-fil-A and McDonald's with timeclocking, food safety,
+              printing labels, and more. For company privacy reasons I can't
+              share the repo we work in, but I can share snippets of code I've
+              written there upon request.
+            </p>
+            <div class="links">
+              <a href="https://drive.google.com/file/d/1EQidafXhRUGh56CLcJoGEhrAPRzUSGQC/view?usp=sharing"
+                target="_blank" rel="noopener noreferrer"
+                title="Site: https://drive.google.com/file/d/1EQidafXhRUGh56CLcJoGEhrAPRzUSGQC/view?usp=sharing"
+                class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/jolt1.webp" alt="Jolt Screenshot" title="Jolt Screenshot" class="project-shot"
+            loading="lazy" />
+        </div>
+        <div class="card shadowed" id="irecognize">
+          <div class="project-text">
+            <h2>iRecognize</h2>
+            <p>
+              For BYU's CS 356 UI/UX Design class project, my group of 3 made
+              a mobile app throughout the second half of the semester. We
+              found that it's hard to remember people's names, and sometimes
+              important details about where you two met or other relevant info
+              about them. We made a Figma prototype and then a Flutter app
+              that demos how you could use your GPS to locate those around you
+              and be able to put names to faces.
+            </p>
+            <div class="links">
+              <a href="https://drive.google.com/file/d/1xsEqwsDENCCvsRq3Uq4T6nzvK1ElvdfV/view?usp=sharing"
+                target="_blank" rel="noopener noreferrer"
+                title="Site: https://drive.google.com/file/d/1xsEqwsDENCCvsRq3Uq4T6nzvK1ElvdfV/view?usp=sharing"
+                class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/irecognize" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/irecognize" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/irecognize1.webp" alt="iRecognize Screenshot" title="iRecognize Screenshot"
+            class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="instructme">
+          <div class="project-text">
+            <h2>Instruct.me</h2>
+            <p>
+              For an on-campus internship at BYU's Business School, I helped
+              out the Instruct.Me startup with designing their app from the
+              ground up. We used Figma to build high-fidelity interactive
+              prototypes.
+            </p>
+            <div class="links">
+              <a href="https://drive.google.com/file/d/1iHpmR9OCVDQchdy5udaxo5SbWqCKYL3V/view?usp=sharing"
+                target="_blank" rel="noopener noreferrer"
+                title="Site: https://drive.google.com/file/d/1iHpmR9OCVDQchdy5udaxo5SbWqCKYL3V/view?usp=sharing"
+                class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/instructme" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/instructme" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/instructme1.webp" alt="Instruct.Me Screenshot" title="Instruct.Me Screenshot"
+            class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="melting-pot">
+          <div class="project-text">
+            <h2>Melting Pot</h2>
+            <p>
+              For my final project for BYU CS 356 UI/UX Design class, we had
+              to make an app that fills a need for the Coloured People of
+              South Africa. After doing extensive research, I found that the
+              those people struggle to find their identify due to their mixed
+              heritage. I made a Figma prototype of how an app could scan
+              their face using facial recognition and then help them identify
+              which facial features correspond with their ancestral tribes.
+            </p>
+            <div class="links">
+              <a href="https://www.figma.com/proto/OpqKlkSOyQ4QgO900BjQyb/Melting-Pot?node-id=3%3A53" target="_blank"
+                rel="noopener noreferrer"
+                title="Site: https://www.figma.com/proto/OpqKlkSOyQ4QgO900BjQyb/Melting-Pot?node-id=3%3A53"
+                class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/melting-pot" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/melting-pot" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/melting-pot1.webp" alt="Melting Pot Screenshot" title="Melting Pot Screenshot"
+            class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="venmo-tithing">
+          <div class="project-text">
+            <h2>Venmo Tithing Calculator</h2>
+            <p>
+              Automatically find out how much tithing you pay from your venmo
+              income in just a few clicks! My mom came to me, tired of
+              manually tallying up her income from Venmo by hand, then
+              calculating the tithing on it. I made this site to automate that
+              whole process. Uses Flask with HTML and CSS.
+            </p>
+            <div class="links">
+              <a href="https://venmo-tithing.brighamandersen.com" target="_blank" rel="noopener noreferrer"
+                title="Site: https://venmo-tithing.brighamandersen.com" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/venmo-tithing" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/venmo-tithing" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/venmo-tithing1.webp" alt="Venmo Tithing Calculator Screenshot"
+            title="Venmo Tithing Calculator Screenshot" class="project-shot" loading="lazy" />
+        </div>
+        <div class="card shadowed" id="vbb-portal">
+          <div class="project-text">
+            <h2>VBB Mentoring Portal</h2>
+            <p>
+              I worked as a Full Stack Developer intern at Village Book
+              Builders (VBB), contributing to the International Mentoring
+              Booking Site used by organizations like Nike and Oracle. While I
+              developed both the front end (ReactJS) and back end (Django), my
+              main focus was front-end implementation. Since I left, the
+              official website has been unstable, so with VBB’s permission, I
+              recreated the front end on my own domain as a portfolio project.
+              The original app included authentication and appointment
+              booking, but the recreated version uses local storage and allows
+              anyone to explore the site without logging in.
+            </p>
+            <div class="links">
+              <a href="https://vbb.brighamandersen.com" target="_blank" rel="noopener noreferrer"
+                title="Site: https://vbb.brighamandersen.com" class="icon-button">
+                <svg class="icon small site-icon">
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                </svg>
+              </a>
+              <a href="https://github.com/brighamandersen/vbb-portal" target="_blank" rel="noopener noreferrer"
+                title="Source Code: https://github.com/brighamandersen/vbb-portal" class="icon-button">
+                <svg class="icon small github-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <img src="./assets/shots/vbb-portal1.webp" alt="VBB Mentoring Portal Screenshot"
+            title="VBB Mentoring Portal Screenshot" class="project-shot" loading="lazy" />
+        </div>
+      </div>
+      <p class="projects-footer">
+        <a href="https://github.com/brighamandersen?tab=repositories" target="_blank" rel="noopener noreferrer"
+          class="projects-footer-link">
+          <span>See all my public repos on GitHub</span>
+          <svg class="icon small github-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+      </p>
+    </section>
+  </main>
+  <img src="./assets/corner-logo-light.webp" alt="BA Logo Light" title="BA Logo Light" class="corner-logo light"
+    loading="lazy" />
+  <img src="./assets/corner-logo-dark.webp" alt="BA Logo Dark" title="BA Logo Dark" class="corner-logo dark"
+    loading="lazy" />
+</body>
+
 </html>
