@@ -40,9 +40,12 @@
   /* Light mode colors */
   --primary: #215481;
   --secondary: #808080;
-  --background: #eeeeee; /* Backgrounds like background of active nav item and page background */
-  --surface: #ffffff; /* Surfaces like navbar and cards */
-  --text: #000000; /* Color of paragraph text */
+  /* Backgrounds like background of active nav item and page background */
+  --background: #eeeeee;
+  /* Surfaces like navbar and cards */
+  --surface: #ffffff;
+  /* Color of paragraph text */
+  --text: #000000;
   --hover: rgba(0, 0, 0, 0.03);
 
   /* Breakpoints (can't be used in media queries though */
@@ -72,7 +75,8 @@ body {
 main {
   padding: 32px;
   width: 100%;
-  max-width: var(--tablet-breakpoint); /* Content width maxes at tablet width */
+  /* Content width maxes at tablet width */
+  max-width: var(--tablet-breakpoint);
   margin: 0 auto;
 }
 
@@ -100,10 +104,13 @@ p {
 
 a {
   color: var(--secondary);
+  text-decoration: none;
+  text-underline-offset: 5px;
 }
 
 a:hover {
   color: var(--primary);
+  text-decoration: underline;
 }
 
 section {
@@ -148,7 +155,8 @@ section {
 /* ICON BUTTON */
 
 .icon-button {
-  position: relative; /* Needed for tooltip */
+  /* Needed for tooltip */
+  position: relative;
   text-decoration: none;
   padding: 16px;
   border-radius: 50%;
@@ -178,7 +186,8 @@ section {
   gap: 32px;
 }
 
-@media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
+/* var(--tablet-breakpoint) but can't use in media queries */
+@media (max-width: 960px) {
   .icon-grid {
     /* 1 items wide on tablet width */
     grid-template-columns: repeat(1, 1fr);
@@ -201,6 +210,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.nav-item:hover {
+  text-decoration: none;
 }
 
 .nav-item:hover .icon {
@@ -227,7 +240,8 @@ section {
 }
 
 /* Don't show nav text on tablet and mobile, only nav icon */
-@media (max-width: 960px /* var(--tablet-breakpoint) but can't use in media queries */) {
+/* var(--tablet-breakpoint) but can't use in media queries */
+@media (max-width: 960px) {
   .navbar {
     justify-content: space-evenly;
   }
@@ -246,6 +260,7 @@ section {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--secondary);
 }
@@ -274,7 +289,8 @@ section {
 }
 
 /* Hide corner logo on tablet and mobile */
-@media (max-width: 1280px /* var(--desktop-breakpoint) but can't use in media queries */) {
+/* var(--desktop-breakpoint) but can't use in media queries */
+@media (max-width: 1280px) {
   .corner-logo {
     display: none;
   }
@@ -303,7 +319,8 @@ section {
   bottom: 105%;
   left: 50%;
   width: 280px;
-  margin-left: -140px; /* Use half of the width to center the tooltip */
+  /* Use half of the width to center the tooltip */
+  margin-left: -140px;
   background-color: var(--hover);
   color: var(--primary);
   text-align: center;
@@ -314,7 +331,8 @@ section {
 
 .tooltip.small {
   width: 200px;
-  margin-left: -100px; /* Use half of the width to center the tooltip */
+  /* Use half of the width to center the tooltip */
+  margin-left: -100px;
 }
 
 .tooltip.bottom {
@@ -328,7 +346,8 @@ section {
 }
 
 /* Hide tooltips on mobile devices (no space) */
-@media (max-width: 600px /* var(--mobile-breakpoint) but can't use in media queries */) {
+/* var(--mobile-breakpoint) but can't use in media queries */
+@media (max-width: 600px) {
   .tooltip {
     display: none;
   }
