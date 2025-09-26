@@ -3,7 +3,9 @@ set -euo pipefail
 
 echo "Deploying portfolio"
 
-sudo ln -sf /home/brig/code/portfolio/deploy/nginx/portfolio.conf /etc/nginx/conf.d/portfolio.conf
+# nginx
+
+sudo ln -sf /home/brig/code/portfolio/deploy/nginx.conf /etc/nginx/conf.d/root.conf
 
 sudo nginx -t
 sudo systemctl reload nginx

@@ -11,7 +11,7 @@ One of the great benefits of this switch to a simple HTML site is performance! A
 
 ![Lighthouse scores screenshot](assets/README-lighthouse-scores.jpg)
 
-### Usage/deployment to production
+### Deploying to Production
 
 ```bash
 cd path/to/repo
